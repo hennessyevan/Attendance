@@ -9,7 +9,12 @@
 import SwiftUI
 import CoreData
 
+class Session: ObservableObject {
+    @Published var sessionName = ""
+}
+
 struct ContentView: View {
+    let session = Session()
     @State private var selection = "Home"
     
     var body: some View {
@@ -31,6 +36,7 @@ struct ContentView: View {
             }
             .tag("List")
             }.edgesIgnoringSafeArea(.top)
+        .environmentObject(session)
     }
 }
 

@@ -10,7 +10,6 @@ import SwiftUI
 import Grid
 import CoreData
 
-
 struct Home: View {
     
     @Environment(\.managedObjectContext) var managedObjectContext
@@ -18,6 +17,9 @@ struct Home: View {
         entity: Attendee.entity(),
         sortDescriptors: [NSSortDescriptor(keyPath: \Attendee.firstName, ascending: true)]
     ) var attendees: FetchedResults<Attendee>
+    
+    @EnvironmentObject var session: Session
+    @State private var showingNewAttendee = false
 
     
     let gridStyle = StaggeredGridStyle(
@@ -32,17 +34,33 @@ struct Home: View {
             Grid(attendees) { attendee in
                 PersonCard(person: attendee)
             }
-            .navigationBarTitle("Home")
+            .navigationBarTitle(session.sessionName == "" ? "Home" : session.sessionName)
+            .navigationBarItems(
+                leading:
+                NavigationLink(destination: List()) {
+                 Text("List")
+                },
+                trailing:
+                Button(action: {
+                    self.showingNewAttendee = true
+                }) {
+                    Image(systemName: "plus.circle.fill").resizable().frame(width: 24, height: 24)
+                        .padding(EdgeInsets(top:8, leading:8, bottom:8, trailing: 0))
+                }.sheet(isPresented: $showingNewAttendee, content: {
+                    NewAttendee()
+                })
+            )
             .gridStyle(self.gridStyle)
-        }.navigationViewStyle(StackNavigationViewStyle())
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
-#if DEBUG
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
+        let session = Session()
+        session.sessionName = "Lifeteen"
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        return Home().environment(\.managedObjectContext, context)
+        return Home().environment(\.managedObjectContext, context).environmentObject(session)
     }
 }
-#endif

@@ -11,6 +11,8 @@
 		3521D809242A730600FCB101 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3521D808242A730600FCB101 /* List.swift */; };
 		3521D80B242AB35F00FCB101 /* Attendee+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3521D80A242AB35F00FCB101 /* Attendee+Extensions.swift */; };
 		3521D80D242AB4D700FCB101 /* DataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3521D80C242AB4D700FCB101 /* DataHelper.swift */; };
+		3521D80F242AE59B00FCB101 /* GeometryGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3521D80E242AE59B00FCB101 /* GeometryGetter.swift */; };
+		3521D812242B0ACD00FCB101 /* NewAttendee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3521D811242B0ACD00FCB101 /* NewAttendee.swift */; };
 		35A609B423EB99B80083DA45 /* YM_Signup.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35A609B223EB99B80083DA45 /* YM_Signup.xcdatamodeld */; };
 		35A609BB23EBA8510083DA45 /* Grid in Frameworks */ = {isa = PBXBuildFile; productRef = 35A609BA23EBA8510083DA45 /* Grid */; };
 		35BAEE0423EB20210010CD58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BAEE0323EB20210010CD58 /* AppDelegate.swift */; };
@@ -48,6 +50,8 @@
 		3521D808242A730600FCB101 /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		3521D80A242AB35F00FCB101 /* Attendee+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Attendee+Extensions.swift"; sourceTree = "<group>"; };
 		3521D80C242AB4D700FCB101 /* DataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHelper.swift; sourceTree = "<group>"; };
+		3521D80E242AE59B00FCB101 /* GeometryGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryGetter.swift; sourceTree = "<group>"; };
+		3521D811242B0ACD00FCB101 /* NewAttendee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAttendee.swift; sourceTree = "<group>"; };
 		35A609B323EB99B80083DA45 /* Database.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Database.xcdatamodel; sourceTree = "<group>"; };
 		35BAEE0023EB20210010CD58 /* YM Signup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "YM Signup.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		35BAEE0323EB20210010CD58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -175,6 +179,8 @@
 				35BAEE3A23EB30370010CD58 /* PersonCard.swift */,
 				35BAEE4223EB74C30010CD58 /* BlurView.swift */,
 				3521D7EA242977C700FCB101 /* PersonModal.swift */,
+				3521D80E242AE59B00FCB101 /* GeometryGetter.swift */,
+				3521D811242B0ACD00FCB101 /* NewAttendee.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -327,6 +333,7 @@
 			files = (
 				3521D7EB242977C700FCB101 /* PersonModal.swift in Sources */,
 				35BAEE0423EB20210010CD58 /* AppDelegate.swift in Sources */,
+				3521D80F242AE59B00FCB101 /* GeometryGetter.swift in Sources */,
 				3521D809242A730600FCB101 /* List.swift in Sources */,
 				35A609B423EB99B80083DA45 /* YM_Signup.xcdatamodeld in Sources */,
 				35BAEE0623EB20210010CD58 /* SceneDelegate.swift in Sources */,
@@ -335,6 +342,7 @@
 				3521D80D242AB4D700FCB101 /* DataHelper.swift in Sources */,
 				35BAEE3B23EB30370010CD58 /* PersonCard.swift in Sources */,
 				35BAEE4323EB74C30010CD58 /* BlurView.swift in Sources */,
+				3521D812242B0ACD00FCB101 /* NewAttendee.swift in Sources */,
 				35BAEE4B23EB779A0010CD58 /* Home.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

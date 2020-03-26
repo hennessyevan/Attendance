@@ -6,14 +6,13 @@
 //  Copyright © 2020 Evan Hennessy. All rights reserved.
 //
 
-import SwiftUI
 import CoreData
+import SwiftUI
 
 struct PersonCard: View {
-    
     var person: Attendee
     
-    let cornerRadius:CGFloat = 8
+    let cornerRadius: CGFloat = 8
     
     @State private var show_modal: Bool = false
     @State private var offset = CGSize.zero
@@ -22,91 +21,122 @@ struct PersonCard: View {
     
     var body: some View {
         ZStack {
-        VStack(alignment: .leading, spacing: 12) {
-            HStack(alignment: .bottom) {
-                VStack(alignment: .leading) {
-                    HStack {
-                        Text("\(person.firstName!)")
-                        .fontWeight(.bold)
-                        .font(.system(size: 18))
-                        .foregroundColor(.primary)
+            VStack(alignment: .leading, spacing: 12) {
+                HStack(alignment: .bottom) {
+                    VStack(alignment: .leading) {
+                        HStack {
+                            Text("\(person.firstName!)")
+                                .fontWeight(.bold)
+                                .font(.system(size: 18))
+                                .foregroundColor(.primary)
+                            
+                            if person.lastName != nil {
+                                Text("\(person.lastName!)")
+                                    .fontWeight(.bold)
+                                    .font(.system(size: 18))
+                                    .foregroundColor(.primary)
+                            }
+                        }
                         
-                        if person.lastName != nil {
-                            Text("\(person.lastName!)")
-                            .fontWeight(.bold)
-                            .font(.system(size: 18))
-                            .foregroundColor(.primary)
+                        Text("Grade \(person.grade)")
+                            .font(.system(size: 14))
+                            .foregroundColor(.accentColor)
+                    }
+                    Spacer()
+                }
+                .padding(.vertical, 16)
+                .padding(.horizontal, 16)
+                .background(Color(UIColor.systemGray5))
+            }
+            .onTapGesture(perform: {
+                if self.buttonShown {
+                    withAnimation {
+                        self.offset.width = .zero
+                    }
+                    self.buttonShown = false
+                } else {
+                    self.show_modal = true
+                }
+            })
+            .offset(x: 0, y: 0)
+            .offset(x: offset.width)
+            .cornerRadius(cornerRadius)
+            .sheet(isPresented: self.$show_modal, content: {
+                PersonModal(person: self.person).animation(.spring())
+            })
+            .contextMenu {
+                Button(action: {
+                    // Delete
+                }) {
+                    Text("Delete")
+                    Image(systemName: "trash")
+                }
+                .accentColor(/*@START_MENU_TOKEN@*/.red/*@END_MENU_TOKEN@*/)
+            }
+            .gesture(
+                DragGesture()
+                    .onChanged { (value: DragGesture.Value) in
+                        
+                        withAnimation {
+                            self.offset.width = value.translation.width
+                            
+                            if self.buttonShown {
+                                self.offset.width += self.rect.width / 4
+                            }
+                            
+                            if self.offset.width >= self.rect.width / 2 - 30 {
+                                self.offset.width = self.rect.width / 2 - 30
+                            }
+                            
+                            if value.translation.width < 0 {
+                                self.offset.width = 0
+                            }
                         }
                     }
-                    
-                    Text("Grade \(person.grade)")
-                        .font(.system(size: 14))
-                        .foregroundColor(.accentColor)
-                }
-                Spacer()
-            }
-            .padding(.vertical, 16)
-            .padding(.horizontal, 16)
-            .background(Color(UIColor.systemGray5))
-        }
-        .onTapGesture(perform: {
-            if self.buttonShown {
-                self.offset.width = .zero
-                self.buttonShown = false
-            } else {
-                self.show_modal = true
-            }
-        })
-        .offset(x: 0, y: 0)
-        .offset(x: self.offset.width)
-        .animation(.spring())
-        .cornerRadius(cornerRadius)
-        .sheet(isPresented: self.$show_modal, content: {
-            PersonModal(person: self.person).animation(.spring())
-        })
-        .gesture(
-            DragGesture()
-                .onChanged { (value: DragGesture.Value) in
-                    self.offset.width = value.translation.width
-                    
-                    if self.buttonShown {
-                        self.offset.width += self.rect.width / 4
-                    }
-                    
-                    if value.translation.width < 0 {
-                        self.offset.width = 0
-                    }
-                    
-                }
-                .onEnded { value in
-                        if self.offset.width > self.rect.width / 6 {
-                            self.offset.width = self.rect.width / 4
-                            self.buttonShown = true
-                        } else {
-                            self.offset = .zero
-                            self.buttonShown = false
+                    .onEnded { _ in
+                        withAnimation {
+                            if self.offset.width > self.rect.width / 6 {
+                                self.offset.width = self.rect.width / 4
+                                self.buttonShown = true
+                            } else {
+                                self.offset = .zero
+                                self.buttonShown = false
+                            }
                         }
-                }
+                    }
+            )
+            .background(GeometryGetter(rect: $rect))
+            .zIndex(1)
             
-        )
-        .background(GeometryGetter(rect: $rect))
-        .zIndex(1)
-            
-        Button(action: {
-            
-        }) {
             HStack {
-                    Image(systemName: "checkmark")
-                        .resizable()
-                        .foregroundColor(.white)
-                        .frame(width: rect.width / 16, height: rect.width / 16)
-                Spacer()
+                Button(action: {}) {
+                    HStack {
+                        Image(systemName: "checkmark")
+                            .resizable()
+                            .foregroundColor(.white)
+                            .frame(width: rect.width / 16, height: rect.width / 16)
+                        Spacer()
+                    }
+                }
+                .frame(height: rect.height - 4, alignment: .center)
+                .padding(.leading, rect.width / 16)
+                .background(Color.green)
+                .cornerRadius(cornerRadius)
+                
+                Button(action: {}) {
+                    HStack {
+                        Image(systemName: "checkmark")
+                            .resizable()
+                            .foregroundColor(.white)
+                            .frame(width: rect.width / 16, height: rect.width / 16)
+                        Spacer()
+                    }
+                }
+                .frame(height: rect.height - 4, alignment: .center)
+                .padding(.leading, rect.width / 16)
+                .background(Color.green)
+                .cornerRadius(cornerRadius)
             }
-        }
-        .frame(height: rect.height - 4, alignment: .center)
-        .padding(.leading, rect.width / 16)
-        .background(Color.green)
-        .cornerRadius(cornerRadius)
         }
     }
 }

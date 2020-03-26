@@ -6,6 +6,4 @@
 //  Copyright © 2020 Evan Hennessy. All rights reserved.
 //
 
-extension Attendee: Identifiable {
-    
-}
+extension Attendee: Identifiable {}

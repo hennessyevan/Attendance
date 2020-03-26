@@ -1,5 +1,5 @@
 //
-//  List.swift
+//  AllAttendees.swift
 //  YM Signup
 //
 //  Created by Evan Hennessy on 3/24/20.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct List: View {
+struct AllAttendees: View {
     var body: some View {
         NavigationView {
            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
@@ -16,8 +16,8 @@ struct List: View {
     }
 }
 
-struct List_Previews: PreviewProvider {
+struct AllAttendees_Previews: PreviewProvider {
     static var previews: some View {
-        List()
+        AllAttendees()
     }
 }

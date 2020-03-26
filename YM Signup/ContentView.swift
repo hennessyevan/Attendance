@@ -6,37 +6,36 @@
 //  Copyright © 2020 Evan Hennessy. All rights reserved.
 //
 
-import SwiftUI
 import CoreData
+import SwiftUI
 
 class Session: ObservableObject {
     @Published var sessionName = ""
+    @Published var focusID = UUID()
 }
 
 struct ContentView: View {
-    let session = Session()
     @State private var selection = "Home"
-    
+
     var body: some View {
-        TabView(selection: $selection){
+        TabView(selection: $selection) {
             Home()
                 .tabItem {
                     VStack {
                         Image(systemName: "house")
                         Text("Home")
                     }
-            }
-            .tag("Home")
-            List()
+                }
+                .tag("Home")
+            AllAttendees()
                 .tabItem {
                     VStack {
                         Image(systemName: "person.3")
                         Text("List")
                     }
-            }
-            .tag("List")
-            }.edgesIgnoringSafeArea(.top)
-        .environmentObject(session)
+                }
+                .tag("AllAttendees")
+        }
     }
 }
 

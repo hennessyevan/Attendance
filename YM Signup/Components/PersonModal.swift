@@ -6,13 +6,12 @@
 //  Copyright © 2020 Evan Hennessy. All rights reserved.
 //
 
-import SwiftUI
 import CoreData
+import SwiftUI
 
 struct PersonModal: View {
-    
     var person: Attendee
-    
+
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
     var body: some View {
@@ -23,7 +22,7 @@ struct PersonModal: View {
                         .font(.title)
                         .bold()
                     Text("Grade \(person.grade)")
-                        
+
                         .foregroundColor(.accentColor)
                 }
                 Spacer()
@@ -39,19 +38,19 @@ struct PersonModal: View {
 }
 
 struct PersonModal_Previews: PreviewProvider {
-      static var previews: some View {
-          let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-          let person = NSEntityDescription.insertNewObject(forEntityName: "Attendee", into: context) as! Attendee
-          person.firstName = "Evan"
-          person.lastName = "Hennessy"
-          person.grade = 10
-          person.id = UUID()
-          
-          return HStack {
-              PersonModal(
-                  person: person
-              )
-          }
-          .environment(\.managedObjectContext, context)
-      }
+    static var previews: some View {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let person = NSEntityDescription.insertNewObject(forEntityName: "Attendee", into: context) as! Attendee
+        person.firstName = "Evan"
+        person.lastName = "Hennessy"
+        person.grade = 10
+        person.id = UUID()
+
+        return HStack {
+            PersonModal(
+                person: person
+            )
+        }
+        .environment(\.managedObjectContext, context)
+    }
 }

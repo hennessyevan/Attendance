@@ -19,13 +19,13 @@ public class DataHelper {
             (firstName: "Brigid", lastName: "Alfonso"),
             (firstName: "Hue", lastName: "Frieda"),
             (firstName: "Jolyn", lastName: "Sherrill"),
-//            (firstName: "Florinda", lastName: "Josephine"),
-//            (firstName: "Rudolf", lastName: "Russell"),
-//            (firstName: "Kip", lastName: "Tricia"),
-//            (firstName: "Ricki", lastName: "Rodrick"),
-//            (firstName: "Chong", lastName: "Lorena"),
-//            (firstName: "Odessa", lastName: "Jonnie"),
-//            (firstName: "Sanjuana", lastName: "Denise")
+            (firstName: "Florinda", lastName: "Josephine"),
+            (firstName: "Rudolf", lastName: "Russell"),
+            (firstName: "Kip", lastName: "Tricia"),
+            (firstName: "Ricki", lastName: "Rodrick"),
+            (firstName: "Chong", lastName: "Lorena"),
+            (firstName: "Odessa", lastName: "Jonnie"),
+            (firstName: "Sanjuana", lastName: "Denise")
         ]
         
         for attendee in attendees {
@@ -42,7 +42,7 @@ public class DataHelper {
     }
     
     public func printAllAttendees() {
-        let attendeeFetchRequest:NSFetchRequest<Attendee> = Attendee.fetchRequest()
+        let attendeeFetchRequest: NSFetchRequest<Attendee> = Attendee.fetchRequest()
         let allAttendees: [Attendee]
         
         do {

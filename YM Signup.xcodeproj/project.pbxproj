@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3521D7EB242977C700FCB101 /* PersonModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3521D7EA242977C700FCB101 /* PersonModal.swift */; };
+		3521D7EB242977C700FCB101 /* AttendeeModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3521D7EA242977C700FCB101 /* AttendeeModal.swift */; };
 		3521D809242A730600FCB101 /* AllAttendees.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3521D808242A730600FCB101 /* AllAttendees.swift */; };
 		3521D80B242AB35F00FCB101 /* Attendee+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3521D80A242AB35F00FCB101 /* Attendee+Extensions.swift */; };
 		3521D80D242AB4D700FCB101 /* DataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3521D80C242AB4D700FCB101 /* DataHelper.swift */; };
 		3521D80F242AE59B00FCB101 /* GeometryGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3521D80E242AE59B00FCB101 /* GeometryGetter.swift */; };
 		3521D812242B0ACD00FCB101 /* NewAttendee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3521D811242B0ACD00FCB101 /* NewAttendee.swift */; };
+		3526A3792450FFD400DD3E49 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3526A3782450FFD400DD3E49 /* AppState.swift */; };
 		35A609B423EB99B80083DA45 /* YM_Signup.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35A609B223EB99B80083DA45 /* YM_Signup.xcdatamodeld */; };
 		35A609BB23EBA8510083DA45 /* Grid in Frameworks */ = {isa = PBXBuildFile; productRef = 35A609BA23EBA8510083DA45 /* Grid */; };
 		35BAEE0423EB20210010CD58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BAEE0323EB20210010CD58 /* AppDelegate.swift */; };
@@ -23,15 +24,19 @@
 		35BAEE1323EB20220010CD58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35BAEE1123EB20220010CD58 /* LaunchScreen.storyboard */; };
 		35BAEE1E23EB20220010CD58 /* YM_SignupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BAEE1D23EB20220010CD58 /* YM_SignupTests.swift */; };
 		35BAEE2923EB20220010CD58 /* YM_SignupUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BAEE2823EB20220010CD58 /* YM_SignupUITests.swift */; };
-		35BAEE3B23EB30370010CD58 /* PersonCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BAEE3A23EB30370010CD58 /* PersonCard.swift */; };
+		35BAEE3B23EB30370010CD58 /* AttendeeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BAEE3A23EB30370010CD58 /* AttendeeCard.swift */; };
 		35BAEE4323EB74C30010CD58 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BAEE4223EB74C30010CD58 /* BlurView.swift */; };
 		35BAEE4B23EB779A0010CD58 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BAEE4A23EB779A0010CD58 /* Home.swift */; };
+		35C05A7C244E4DFF0007D90B /* ThemeColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C05A7B244E4DFF0007D90B /* ThemeColorPicker.swift */; };
+		35C05A7E244E66910007D90B /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C05A7D244E66910007D90B /* String+Extensions.swift */; };
 		35D01E06242C29E90035B200 /* Program+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D01E02242C29E90035B200 /* Program+CoreDataClass.swift */; };
 		35D01E07242C29E90035B200 /* Program+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D01E03242C29E90035B200 /* Program+CoreDataProperties.swift */; };
 		35D01E08242C29E90035B200 /* Attendee+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D01E04242C29E90035B200 /* Attendee+CoreDataClass.swift */; };
 		35D01E09242C29E90035B200 /* Attendee+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D01E05242C29E90035B200 /* Attendee+CoreDataProperties.swift */; };
-		35D01E0B242C2E0D0035B200 /* ProgramPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D01E0A242C2E0D0035B200 /* ProgramPicker.swift */; };
 		35D01E0D242C30E00035B200 /* Program+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D01E0C242C30E00035B200 /* Program+Extensions.swift */; };
+		35D7B1A9244F6B9C004D14A0 /* Programs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D7B1A8244F6B9C004D14A0 /* Programs.swift */; };
+		35D7B1AC2450EECD004D14A0 /* NewProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D7B1AB2450EECD004D14A0 /* NewProgram.swift */; };
+		35D7B1AE2450F32C004D14A0 /* ProgramCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D7B1AD2450F32C004D14A0 /* ProgramCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,12 +57,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3521D7EA242977C700FCB101 /* PersonModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonModal.swift; sourceTree = "<group>"; };
+		3521D7EA242977C700FCB101 /* AttendeeModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendeeModal.swift; sourceTree = "<group>"; };
 		3521D808242A730600FCB101 /* AllAttendees.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAttendees.swift; sourceTree = "<group>"; };
 		3521D80A242AB35F00FCB101 /* Attendee+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Attendee+Extensions.swift"; sourceTree = "<group>"; };
 		3521D80C242AB4D700FCB101 /* DataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHelper.swift; sourceTree = "<group>"; };
 		3521D80E242AE59B00FCB101 /* GeometryGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryGetter.swift; sourceTree = "<group>"; };
 		3521D811242B0ACD00FCB101 /* NewAttendee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAttendee.swift; sourceTree = "<group>"; };
+		3526A3782450FFD400DD3E49 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		35A609B323EB99B80083DA45 /* Database.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Database.xcdatamodel; sourceTree = "<group>"; };
 		35BAEE0023EB20210010CD58 /* YM Signup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "YM Signup.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		35BAEE0323EB20210010CD58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -74,15 +80,19 @@
 		35BAEE2823EB20220010CD58 /* YM_SignupUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YM_SignupUITests.swift; sourceTree = "<group>"; };
 		35BAEE2A23EB20220010CD58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35BAEE3623EB21710010CD58 /* YM Signup.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "YM Signup.entitlements"; sourceTree = "<group>"; };
-		35BAEE3A23EB30370010CD58 /* PersonCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCard.swift; sourceTree = "<group>"; };
+		35BAEE3A23EB30370010CD58 /* AttendeeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendeeCard.swift; sourceTree = "<group>"; };
 		35BAEE4223EB74C30010CD58 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		35BAEE4A23EB779A0010CD58 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		35C05A7B244E4DFF0007D90B /* ThemeColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColorPicker.swift; sourceTree = "<group>"; };
+		35C05A7D244E66910007D90B /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		35D01E02242C29E90035B200 /* Program+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Program+CoreDataClass.swift"; sourceTree = "<group>"; };
 		35D01E03242C29E90035B200 /* Program+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Program+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		35D01E04242C29E90035B200 /* Attendee+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Attendee+CoreDataClass.swift"; sourceTree = "<group>"; };
 		35D01E05242C29E90035B200 /* Attendee+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Attendee+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		35D01E0A242C2E0D0035B200 /* ProgramPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramPicker.swift; sourceTree = "<group>"; };
 		35D01E0C242C30E00035B200 /* Program+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Program+Extensions.swift"; sourceTree = "<group>"; };
+		35D7B1A8244F6B9C004D14A0 /* Programs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Programs.swift; sourceTree = "<group>"; };
+		35D7B1AB2450EECD004D14A0 /* NewProgram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProgram.swift; sourceTree = "<group>"; };
+		35D7B1AD2450F32C004D14A0 /* ProgramCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +121,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3526A37C24521AB900DD3E49 /* Attendee */ = {
+			isa = PBXGroup;
+			children = (
+				35BAEE3A23EB30370010CD58 /* AttendeeCard.swift */,
+				3521D7EA242977C700FCB101 /* AttendeeModal.swift */,
+				3521D811242B0ACD00FCB101 /* NewAttendee.swift */,
+			);
+			path = Attendee;
+			sourceTree = "<group>";
+		};
+		3526A37D24521ACE00DD3E49 /* Forms */ = {
+			isa = PBXGroup;
+			children = (
+				35C05A7B244E4DFF0007D90B /* ThemeColorPicker.swift */,
+			);
+			path = Forms;
+			sourceTree = "<group>";
+		};
+		3526A37E24521AD900DD3E49 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				35BAEE4223EB74C30010CD58 /* BlurView.swift */,
+				3521D80E242AE59B00FCB101 /* GeometryGetter.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		35A609B523EB99C20083DA45 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,10 +182,10 @@
 			children = (
 				35D01E02242C29E90035B200 /* Program+CoreDataClass.swift */,
 				35D01E03242C29E90035B200 /* Program+CoreDataProperties.swift */,
+				35D01E0C242C30E00035B200 /* Program+Extensions.swift */,
 				35D01E04242C29E90035B200 /* Attendee+CoreDataClass.swift */,
 				35D01E05242C29E90035B200 /* Attendee+CoreDataProperties.swift */,
 				3521D80A242AB35F00FCB101 /* Attendee+Extensions.swift */,
-				35D01E0C242C30E00035B200 /* Program+Extensions.swift */,
 				35A609B523EB99C20083DA45 /* CoreData */,
 				35BAEE4923EB778E0010CD58 /* Views */,
 				35BAEE3723EB2F120010CD58 /* Components */,
@@ -160,6 +197,8 @@
 				35BAEE1123EB20220010CD58 /* LaunchScreen.storyboard */,
 				35BAEE1423EB20220010CD58 /* Info.plist */,
 				35BAEE0E23EB20220010CD58 /* Preview Content */,
+				35C05A7D244E66910007D90B /* String+Extensions.swift */,
+				3526A3782450FFD400DD3E49 /* AppState.swift */,
 			);
 			path = "YM Signup";
 			sourceTree = "<group>";
@@ -193,12 +232,10 @@
 		35BAEE3723EB2F120010CD58 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				35BAEE3A23EB30370010CD58 /* PersonCard.swift */,
-				35BAEE4223EB74C30010CD58 /* BlurView.swift */,
-				3521D7EA242977C700FCB101 /* PersonModal.swift */,
-				3521D80E242AE59B00FCB101 /* GeometryGetter.swift */,
-				3521D811242B0ACD00FCB101 /* NewAttendee.swift */,
-				35D01E0A242C2E0D0035B200 /* ProgramPicker.swift */,
+				3526A37E24521AD900DD3E49 /* Utils */,
+				3526A37D24521ACE00DD3E49 /* Forms */,
+				3526A37C24521AB900DD3E49 /* Attendee */,
+				35D7B1AA2450EEC1004D14A0 /* Programs */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -208,8 +245,18 @@
 			children = (
 				35BAEE4A23EB779A0010CD58 /* Home.swift */,
 				3521D808242A730600FCB101 /* AllAttendees.swift */,
+				35D7B1A8244F6B9C004D14A0 /* Programs.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		35D7B1AA2450EEC1004D14A0 /* Programs */ = {
+			isa = PBXGroup;
+			children = (
+				35D7B1AB2450EECD004D14A0 /* NewProgram.swift */,
+				35D7B1AD2450F32C004D14A0 /* ProgramCard.swift */,
+			);
+			path = Programs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,12 +396,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3521D7EB242977C700FCB101 /* PersonModal.swift in Sources */,
+				35D7B1AC2450EECD004D14A0 /* NewProgram.swift in Sources */,
+				3521D7EB242977C700FCB101 /* AttendeeModal.swift in Sources */,
+				35C05A7E244E66910007D90B /* String+Extensions.swift in Sources */,
+				3526A3792450FFD400DD3E49 /* AppState.swift in Sources */,
+				35C05A7C244E4DFF0007D90B /* ThemeColorPicker.swift in Sources */,
 				35BAEE0423EB20210010CD58 /* AppDelegate.swift in Sources */,
 				3521D80F242AE59B00FCB101 /* GeometryGetter.swift in Sources */,
 				3521D809242A730600FCB101 /* AllAttendees.swift in Sources */,
-				35D01E0B242C2E0D0035B200 /* ProgramPicker.swift in Sources */,
 				35D01E07242C29E90035B200 /* Program+CoreDataProperties.swift in Sources */,
+				35D7B1A9244F6B9C004D14A0 /* Programs.swift in Sources */,
+				35D7B1AE2450F32C004D14A0 /* ProgramCard.swift in Sources */,
 				35D01E08242C29E90035B200 /* Attendee+CoreDataClass.swift in Sources */,
 				35A609B423EB99B80083DA45 /* YM_Signup.xcdatamodeld in Sources */,
 				35BAEE0623EB20210010CD58 /* SceneDelegate.swift in Sources */,
@@ -364,7 +416,7 @@
 				3521D80B242AB35F00FCB101 /* Attendee+Extensions.swift in Sources */,
 				35BAEE0B23EB20210010CD58 /* ContentView.swift in Sources */,
 				3521D80D242AB4D700FCB101 /* DataHelper.swift in Sources */,
-				35BAEE3B23EB30370010CD58 /* PersonCard.swift in Sources */,
+				35BAEE3B23EB30370010CD58 /* AttendeeCard.swift in Sources */,
 				35BAEE4323EB74C30010CD58 /* BlurView.swift in Sources */,
 				3521D812242B0ACD00FCB101 /* NewAttendee.swift in Sources */,
 				35BAEE4B23EB779A0010CD58 /* Home.swift in Sources */,

@@ -18,11 +18,16 @@ extension Program {
     }
 
     @NSManaged public var name: String?
+    @NSManaged public var color: String?
     @NSManaged public var id: UUID?
     @NSManaged public var attendees: NSSet?
     
     public var wrappedName: String {
         name ?? "Unknown Name"
+    }
+    
+    public var wrappedColor: String {
+        color ?? "blue"
     }
     
     public var wrappedId: UUID {

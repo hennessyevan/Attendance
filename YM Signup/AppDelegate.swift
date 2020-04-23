@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          */
         do {
             try persistentContainer.viewContext.execute(NSBatchDeleteRequest(fetchRequest: Attendee.fetchRequest()))
+            try persistentContainer.viewContext.execute(NSBatchDeleteRequest(fetchRequest: Program.fetchRequest()))
         } catch {}
 
         let dataHelper = DataHelper(context: persistentContainer.viewContext)

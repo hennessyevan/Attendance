@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-class NewProgramFormFields: ObservableObject {
+class NewProgramFormFields: ObservableObject, PropertyNames {
     @Published var name = ""
     @Published var selectedColor = 0
 
@@ -35,7 +35,11 @@ struct NewProgram: View {
                 }
             }
             .navigationBarTitle("New Program", displayMode: .inline)
-            .navigationBarItems(trailing: Button("Save") {
+            .navigationBarItems(
+                leading: Button("Cancel") {
+                    
+                },
+                trailing: Button("Save") {
                 let program = Program(context: self.managedObjectContext)
                 program.name = self.fields.name
                 program.color = themeColors[self.fields.selectedColor].key

@@ -14,6 +14,11 @@
 		3521D80F242AE59B00FCB101 /* GeometryGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3521D80E242AE59B00FCB101 /* GeometryGetter.swift */; };
 		3521D812242B0ACD00FCB101 /* NewAttendee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3521D811242B0ACD00FCB101 /* NewAttendee.swift */; };
 		3526A3792450FFD400DD3E49 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3526A3782450FFD400DD3E49 /* AppState.swift */; };
+		35977A492452695500E90CC8 /* PropertyNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35977A482452695500E90CC8 /* PropertyNames.swift */; };
+		35977A5024528FD900E90CC8 /* CaptureImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35977A4F24528FD900E90CC8 /* CaptureImageView.swift */; };
+		35977A53245290E500E90CC8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35977A52245290E500E90CC8 /* Coordinator.swift */; };
+		35977A5524529C2900E90CC8 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35977A5424529C2900E90CC8 /* ModalView.swift */; };
+		35977A572452A31700E90CC8 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35977A562452A31700E90CC8 /* UIImage+Extensions.swift */; };
 		35A609B423EB99B80083DA45 /* YM_Signup.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35A609B223EB99B80083DA45 /* YM_Signup.xcdatamodeld */; };
 		35A609BB23EBA8510083DA45 /* Grid in Frameworks */ = {isa = PBXBuildFile; productRef = 35A609BA23EBA8510083DA45 /* Grid */; };
 		35BAEE0423EB20210010CD58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BAEE0323EB20210010CD58 /* AppDelegate.swift */; };
@@ -64,6 +69,11 @@
 		3521D80E242AE59B00FCB101 /* GeometryGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryGetter.swift; sourceTree = "<group>"; };
 		3521D811242B0ACD00FCB101 /* NewAttendee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAttendee.swift; sourceTree = "<group>"; };
 		3526A3782450FFD400DD3E49 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		35977A482452695500E90CC8 /* PropertyNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyNames.swift; sourceTree = "<group>"; };
+		35977A4F24528FD900E90CC8 /* CaptureImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureImageView.swift; sourceTree = "<group>"; };
+		35977A52245290E500E90CC8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		35977A5424529C2900E90CC8 /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
+		35977A562452A31700E90CC8 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		35A609B323EB99B80083DA45 /* Database.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Database.xcdatamodel; sourceTree = "<group>"; };
 		35BAEE0023EB20210010CD58 /* YM Signup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "YM Signup.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		35BAEE0323EB20210010CD58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -144,8 +154,19 @@
 			children = (
 				35BAEE4223EB74C30010CD58 /* BlurView.swift */,
 				3521D80E242AE59B00FCB101 /* GeometryGetter.swift */,
+				35977A482452695500E90CC8 /* PropertyNames.swift */,
+				35977A5424529C2900E90CC8 /* ModalView.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		35977A51245290CC00E90CC8 /* CameraPicker */ = {
+			isa = PBXGroup;
+			children = (
+				35977A4F24528FD900E90CC8 /* CaptureImageView.swift */,
+				35977A52245290E500E90CC8 /* Coordinator.swift */,
+			);
+			path = CameraPicker;
 			sourceTree = "<group>";
 		};
 		35A609B523EB99C20083DA45 /* CoreData */ = {
@@ -199,6 +220,7 @@
 				35BAEE0E23EB20220010CD58 /* Preview Content */,
 				35C05A7D244E66910007D90B /* String+Extensions.swift */,
 				3526A3782450FFD400DD3E49 /* AppState.swift */,
+				35977A562452A31700E90CC8 /* UIImage+Extensions.swift */,
 			);
 			path = "YM Signup";
 			sourceTree = "<group>";
@@ -236,6 +258,7 @@
 				3526A37D24521ACE00DD3E49 /* Forms */,
 				3526A37C24521AB900DD3E49 /* Attendee */,
 				35D7B1AA2450EEC1004D14A0 /* Programs */,
+				35977A51245290CC00E90CC8 /* CameraPicker */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -401,7 +424,10 @@
 				35C05A7E244E66910007D90B /* String+Extensions.swift in Sources */,
 				3526A3792450FFD400DD3E49 /* AppState.swift in Sources */,
 				35C05A7C244E4DFF0007D90B /* ThemeColorPicker.swift in Sources */,
+				35977A5024528FD900E90CC8 /* CaptureImageView.swift in Sources */,
 				35BAEE0423EB20210010CD58 /* AppDelegate.swift in Sources */,
+				35977A492452695500E90CC8 /* PropertyNames.swift in Sources */,
+				35977A53245290E500E90CC8 /* Coordinator.swift in Sources */,
 				3521D80F242AE59B00FCB101 /* GeometryGetter.swift in Sources */,
 				3521D809242A730600FCB101 /* AllAttendees.swift in Sources */,
 				35D01E07242C29E90035B200 /* Program+CoreDataProperties.swift in Sources */,
@@ -411,6 +437,7 @@
 				35A609B423EB99B80083DA45 /* YM_Signup.xcdatamodeld in Sources */,
 				35BAEE0623EB20210010CD58 /* SceneDelegate.swift in Sources */,
 				35D01E0D242C30E00035B200 /* Program+Extensions.swift in Sources */,
+				35977A5524529C2900E90CC8 /* ModalView.swift in Sources */,
 				35D01E09242C29E90035B200 /* Attendee+CoreDataProperties.swift in Sources */,
 				35D01E06242C29E90035B200 /* Program+CoreDataClass.swift in Sources */,
 				3521D80B242AB35F00FCB101 /* Attendee+Extensions.swift in Sources */,
@@ -420,6 +447,7 @@
 				35BAEE4323EB74C30010CD58 /* BlurView.swift in Sources */,
 				3521D812242B0ACD00FCB101 /* NewAttendee.swift in Sources */,
 				35BAEE4B23EB779A0010CD58 /* Home.swift in Sources */,
+				35977A572452A31700E90CC8 /* UIImage+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,6 +12,7 @@ import SwiftUI
 struct AttendeeModal: View {
     var attendee: Attendee
 
+    @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
     var body: some View {
@@ -33,21 +34,40 @@ struct AttendeeModal: View {
                 }
             }.padding(24)
             Spacer()
-            AttendeeModalFooter(attendee: attendee)
+            AttendeeModalFooter(attendee: attendee).environment(\.managedObjectContext, self.managedObjectContext)
         }
     }
 }
 
 struct AttendeeModalFooter: View {
     var attendee: Attendee
-    
+
+    @Environment(\.managedObjectContext) var managedObjectContext
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
+    @State private var confirmDelete = false
+
     var body: some View {
         HStack {
             Spacer()
-            Button(action: {}) {
+            Button(action: {
+                self.confirmDelete = true
+            }) {
                 HStack {
                     Image(systemName: "trash")
                     Text("Delete")
+                }
+                .alert(isPresented: $confirmDelete) {
+                    Alert(
+                        title: Text("Are you sure you want to delete \(attendee.wrappedFirstName) \(attendee.wrappedLastName)?"),
+                        primaryButton: .destructive(Text("Delete")) {
+                            self.managedObjectContext.delete(self.attendee)
+                            try? self.managedObjectContext.save()
+
+                            self.presentationMode.wrappedValue.dismiss()
+                        },
+                        secondaryButton: .cancel()
+                    )
                 }
             }
             .foregroundColor(.red)

@@ -22,12 +22,13 @@ struct Home: View {
         self.program = program
         self.fetchRequest = FetchRequest(
             entity: Program.entity(),
-            sortDescriptors: [],
+            sortDescriptors: [NSSortDescriptor(keyPath: \Program.name, ascending: true)],
             predicate: NSPredicate(format: "id == %@", program.wrappedId as CVarArg)
         )
     }
 
     @State private var showingNewAttendee = false
+    @State private var isDirty = false
 
     let gridStyle = StaggeredGridStyle(
         tracks: .min(250),
@@ -38,34 +39,45 @@ struct Home: View {
 
     var body: some View {
         Grid(self.fetchedResults.first!.attendeesArray) { attendee in
-                AttendeeCard(person: attendee)
-            }
-            .navigationBarTitle(program.wrappedName)
-            .navigationBarItems(
-                leading: Button("Programs") { self.presentationMode.wrappedValue.dismiss() },
-                trailing:
-                Button(action: {
-                    self.showingNewAttendee = true
+            AttendeeCard(attendee: attendee).environment(\.managedObjectContext, self.managedObjectContext)
+        }
+        .navigationBarTitle(program.wrappedName)
+        .navigationBarItems(
+            leading: Button("Programs") { self.presentationMode.wrappedValue.dismiss() },
+            trailing:
+            Button(action: {
+                self.showingNewAttendee = true
                 }) {
-                    Image(systemName: "plus.circle.fill").resizable().frame(width: 24, height: 24)
-                        .padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 0))
-                }.sheet(isPresented: $showingNewAttendee, content: {
-                    NewAttendee(program: self.program).environment(\.managedObjectContext, self.managedObjectContext)
+                Image(systemName: "plus.circle.fill").resizable().frame(width: 24, height: 24)
+                    .padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 0))
+            }.sheet(isPresented: $showingNewAttendee, content: {
+                NewAttendee(isDirty: self.$isDirty, program: self.program).environment(\.managedObjectContext, self.managedObjectContext)
+                    .presentation(isModal: self.$isDirty)
                 })
-            )
-            .gridStyle(self.gridStyle)
+        )
+        .gridStyle(self.gridStyle)
     }
 }
 
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-            let attendee = NSEntityDescription.insertNewObject(forEntityName: "Attendee", into: context) as! Attendee
-            attendee.firstName = "Evan"
-            attendee.lastName = "Hennessy"
-            attendee.grade = 10
-            attendee.id = UUID()
-        
-        return Home(program: Program()).environment(\.managedObjectContext, context)
+        let context = (UIApplication.shared.delegate as!
+            AppDelegate).persistentContainer.viewContext
+
+        let program = NSEntityDescription.insertNewObject(forEntityName: "Program", into: context) as! Program
+        program.name = "Lifeteen"
+        program.id = UUID()
+        program.color = "blue"
+
+        let attendee = NSEntityDescription.insertNewObject(forEntityName: "Attendee", into: context) as! Attendee
+        attendee.firstName = "Evan"
+        attendee.lastName = "Hennessy"
+        attendee.addToPrograms(program)
+        attendee.grade = 10
+        attendee.id = UUID()
+
+        return NavigationView {
+            Home(program: program).environment(\.managedObjectContext, context)
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }

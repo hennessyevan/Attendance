@@ -14,6 +14,8 @@ struct AttendeeCard: View {
     
     let cornerRadius: CGFloat = 8
     
+    @Environment(\.managedObjectContext) var managedObjectContext
+    
     @State private var show_modal: Bool = false
     @GestureState private var isPressing = false
     @State private var isPressed = false
@@ -25,10 +27,12 @@ struct AttendeeCard: View {
             HStack(alignment: .bottom) {
                 VStack(alignment: .leading) {
                     HStack {
-                        Text("\(attendee.firstName!)")
-                            .fontWeight(.bold)
-                            .font(.system(size: 18))
-                            .foregroundColor(.primary)
+                        if attendee.lastName != nil {
+                            Text("\(attendee.firstName!)")
+                                .fontWeight(.bold)
+                                .font(.system(size: 18))
+                                .foregroundColor(.primary)
+                        }
                         
                         if attendee.lastName != nil {
                             Text("\(attendee.lastName!)")
@@ -48,12 +52,15 @@ struct AttendeeCard: View {
             .padding(.horizontal, 16)
             .background(Color(UIColor.systemGray5))
         }
+        .onTapGesture {}
         .onLongPressGesture {
             self.show_modal = true
         }
         .cornerRadius(cornerRadius)
         .sheet(isPresented: self.$show_modal) {
-            AttendeeModal(attendee: self.attendee).animation(.spring())
+            AttendeeModal(attendee: self.attendee)
+                .animation(.spring())
+                .environment(\.managedObjectContext, self.managedObjectContext)
         }
     }
 }

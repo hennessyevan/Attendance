@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Grid",
+        "repositoryURL": "https://github.com/spacenation/swiftui-grid",
+        "state": {
+          "branch": null,
+          "revision": "6548e522d0f0bff124c2e2b17720faccf9f35c58",
+          "version": "0.9.5"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

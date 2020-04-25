@@ -1,5 +1,5 @@
 //
-//  YM_SignupTests.swift
+//  AttendanceTests.swift
 //  AttendanceTests
 //
 //  Created by Evan Hennessy on 2/5/20.
@@ -7,9 +7,9 @@
 //
 
 import XCTest
-@testable import YM_Signup
+@testable import Attendance
 
-class YM_SignupTests: XCTestCase {
+class AttendanceTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

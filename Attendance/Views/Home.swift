@@ -24,9 +24,9 @@ struct Home: View {
         self.fetchRequest = FetchRequest(
             entity: Program.entity(),
             sortDescriptors: [NSSortDescriptor(keyPath: \Program.name, ascending: true)],
-            predicate: NSPredicate(format: "id == %@", program.wrappedId as CVarArg)
+            predicate: NSPredicate(format: "id == %@", program.id as CVarArg)
         )
-        self.color = uiThemeColors[program.wrappedColor] ?? UIColor.systemBlue
+        self.color = uiThemeColors[program.color] ?? UIColor.systemBlue
     }
 
     @State private var showingNewAttendee = false
@@ -44,7 +44,7 @@ struct Home: View {
         Grid(self.fetchedResults.first!.attendeesArray) { attendee in
             AttendeeCard(attendee: attendee).environment(\.managedObjectContext, self.managedObjectContext)
         }
-        .navigationBarTitle(program.wrappedName)
+        .navigationBarTitle(program.name)
         .navigationBarItems(
             leading: Button("Programs") { self.presentationMode.wrappedValue.dismiss() },
             trailing:

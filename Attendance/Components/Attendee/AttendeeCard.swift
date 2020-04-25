@@ -27,19 +27,15 @@ struct AttendeeCard: View {
                     HStack(alignment: .center) {
                         VStack(alignment: .leading) {
                             HStack {
-                                if attendee.lastName != nil {
-                                    Text("\(attendee.firstName!)")
-                                        .fontWeight(.bold)
-                                        .font(.system(size: 18))
-                                        .foregroundColor(.primary)
-                                }
+                                Text("\(attendee.firstName)")
+                                    .fontWeight(.bold)
+                                    .font(.system(size: 18))
+                                    .foregroundColor(.primary)
                                 
-                                if attendee.lastName != nil {
-                                    Text("\(attendee.lastName!)")
-                                        .fontWeight(.bold)
-                                        .font(.system(size: 18))
-                                        .foregroundColor(.primary)
-                                }
+                                Text("\(attendee.lastName)")
+                                    .fontWeight(.bold)
+                                    .font(.system(size: 18))
+                                    .foregroundColor(.primary)
                             }
                             
                             Text("Grade \(attendee.grade)")

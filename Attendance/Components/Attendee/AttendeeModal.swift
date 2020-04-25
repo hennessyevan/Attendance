@@ -19,7 +19,7 @@ struct AttendeeModal: View {
         VStack {
             HStack(alignment: .top) {
                 VStack(alignment: .leading) {
-                    Text("\(attendee.firstName!) \(attendee.lastName != nil ? attendee.lastName! : "")")
+                    Text("\(attendee.firstName) \(attendee.lastName)")
                         .font(.title)
                         .bold()
                     Text("Grade \(attendee.grade)")
@@ -59,7 +59,7 @@ struct AttendeeModalFooter: View {
                 }
                 .alert(isPresented: $confirmDelete) {
                     Alert(
-                        title: Text("Are you sure you want to delete \(attendee.wrappedFirstName) \(attendee.wrappedLastName)?"),
+                        title: Text("Are you sure you want to delete \(attendee.firstName) \(attendee.lastName)?"),
                         primaryButton: .destructive(Text("Delete")) {
                             self.managedObjectContext.delete(self.attendee)
                             try? self.managedObjectContext.save()

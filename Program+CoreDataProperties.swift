@@ -21,7 +21,7 @@ extension Program {
     @NSManaged public var id: UUID
     @NSManaged public var name: String
     @NSManaged public var attendees: NSSet?
-    @NSManaged public var events: Event?
+    @NSManaged public var events: NSSet?
     
     public var attendeesArray: [Attendee] {
         let set = attendees as? Set<Attendee> ?? []

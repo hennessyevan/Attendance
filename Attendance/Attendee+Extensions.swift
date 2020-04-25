@@ -7,3 +7,8 @@
 //
 
 extension Attendee: Identifiable {}
+
+let Sex = [
+    0: "male",
+    1: "female"
+]

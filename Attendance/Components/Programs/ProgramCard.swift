@@ -22,7 +22,7 @@ struct ProgramCard: View {
 
     init(program: Program) {
         self.program = program
-        self.color = themeColors.first(where: { $0.key == program.wrappedColor })?.value
+        self.color = themeColors.first(where: { $0.key == program.color })?.value
     }
 
     var body: some View {
@@ -33,7 +33,7 @@ struct ProgramCard: View {
                         Spacer()
                         NavigationLink(destination: Home(program: program).navigationBarBackButtonHidden(true), tag: 1, selection: $tag) { EmptyView() }
                         Group {
-                            Text(program.wrappedName)
+                            Text(program.name)
                                 .font(.headline)
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)

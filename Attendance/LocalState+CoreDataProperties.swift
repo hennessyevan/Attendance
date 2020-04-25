@@ -17,6 +17,6 @@ extension LocalState {
         return NSFetchRequest<LocalState>(entityName: "LocalState")
     }
 
-    @NSManaged public var event: Event?
+    @NSManaged public var currentEvent: UUID
 
 }

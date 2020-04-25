@@ -68,7 +68,7 @@ public class DataHelper {
             allAttendees = try context.fetch(attendeeFetchRequest)
             
             for attendee in allAttendees {
-                print("Name: \(attendee.firstName!) \(attendee.lastName!), Program: \(attendee.programsArray.first!.wrappedName)")
+                print("Name: \(attendee.firstName) \(attendee.lastName)")
             }
         } catch {}
     }

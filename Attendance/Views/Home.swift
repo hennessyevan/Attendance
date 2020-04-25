@@ -32,6 +32,7 @@ struct Home: View {
     @State private var showingNewAttendee = false
     @State private var isDirty = false
     @State private var confirmStop = false
+    @State private var session = false
 
     let gridStyle = StaggeredGridStyle(
         tracks: .min(250),
@@ -41,28 +42,14 @@ struct Home: View {
     )
 
     var body: some View {
-        Grid(self.fetchedResults.first!.attendeesArray) { attendee in
-            AttendeeCard(attendee: attendee).environment(\.managedObjectContext, self.managedObjectContext)
-        }
-        .navigationBarTitle(program.name)
-        .navigationBarItems(
-            leading: Button("Programs") { self.presentationMode.wrappedValue.dismiss() },
-            trailing:
-            HStack {
-                Button(action: {
-                    // TODO: [Add Session Stop]
-                }) {
-                    HStack(alignment: .center, spacing: 0) {
-                        Image(systemName: "stop.fill")
-                        Text("Stop")
-                            .fontWeight(.bold)
-                            .frame(width: self.confirmStop ? .infinity : 0)
-                            .lineLimit(1)
-                    }
-                    .padding(EdgeInsets(top: 3, leading: 8, bottom: 3, trailing: 8))
-                    .foregroundColor(Color(UIColor.systemBackground))
-                }.background(Capsule().fill(Color.red))
-
+        ZStack {
+            Grid(self.fetchedResults.first!.attendeesArray) { attendee in
+                AttendeeCard(attendee: attendee).environment(\.managedObjectContext, self.managedObjectContext)
+            }
+            .navigationBarTitle(program.name)
+            .navigationBarItems(
+                leading: Button("Programs") { self.presentationMode.wrappedValue.dismiss() },
+                trailing:
                 Button(action: {
                     self.showingNewAttendee = true
                 }) {
@@ -71,9 +58,43 @@ struct Home: View {
                 }.sheet(isPresented: $showingNewAttendee, content: {
                     NewAttendee(program: self.program).environment(\.managedObjectContext, self.managedObjectContext)
                 })
-            }
-        )
-        .gridStyle(self.gridStyle)
+            )
+            .gridStyle(self.gridStyle)
+
+            VStack(alignment: .center) {
+                Spacer()
+                HStack(alignment: .center) {
+                    Spacer()
+                    Button(action: {
+                        withAnimation {
+                            self.session.toggle()
+                        }
+                    }) {
+                        HStack(alignment: .center, spacing: 0) {
+                            Image(systemName: self.session ? "stop.fill" : "play.fill")
+                                .font(.system(size: 22))
+                                .frame(width: 60, height: 60)
+                                .foregroundColor(.white)
+
+                            Text("Start New Session")
+                                .foregroundColor(.white)
+                                .font(.headline)
+                                .fontWeight(.bold)
+                                .padding(.trailing, 28)
+                                .frame(maxWidth: self.session ? 0 : 200, maxHeight: 28)
+                                .clipped()
+                                .animation(.spring(response: 0.0, dampingFraction: 0.2))
+                        }
+                        .background(self.session ? Color.red : Color.green)
+                        .cornerRadius(.infinity)
+                        .padding(20)
+                        .shadow(color: self.session ? Color.red.opacity(0.5) : Color.green.opacity(0.5), radius: 12, x: 0, y: 6)
+                        .animation(.easeInOut)
+                    }
+                    .buttonStyle(ScaleButtonStyle())
+                }
+            }.edgesIgnoringSafeArea(.all)
+        }
     }
 }
 
@@ -87,12 +108,14 @@ struct Home_Previews: PreviewProvider {
         program.id = UUID()
         program.color = "blue"
 
-        let attendee = NSEntityDescription.insertNewObject(forEntityName: "Attendee", into: context) as! Attendee
-        attendee.firstName = "Evan"
-        attendee.lastName = "Hennessy"
-        attendee.addToPrograms(program)
-        attendee.grade = 10
-        attendee.id = UUID()
+        for _ in 0..<5 {
+            let attendee = NSEntityDescription.insertNewObject(forEntityName: "Attendee", into: context) as! Attendee
+            attendee.firstName = "Evan"
+            attendee.lastName = "Hennessy"
+            attendee.addToPrograms(program)
+            attendee.grade = 10
+            attendee.id = UUID()
+        }
 
         return NavigationView {
             Home(program: program).environment(\.managedObjectContext, context)

@@ -13,7 +13,8 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+
+        // Show DB Directory
         if let directoryLocation = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).last { print("Documents Directory: \(directoryLocation)Application Support") }
 
         /*
@@ -21,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          */
         do {
             try persistentContainer.viewContext.execute(NSBatchDeleteRequest(fetchRequest: Attendee.fetchRequest()))
+            try persistentContainer.viewContext.execute(NSBatchDeleteRequest(fetchRequest: Event.fetchRequest()))
             try persistentContainer.viewContext.execute(NSBatchDeleteRequest(fetchRequest: Program.fetchRequest()))
         } catch {}
 
@@ -28,7 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         dataHelper.seedAttendees()
 
 //        dataHelper.printAllAttendees()
-    
 
         return true
     }

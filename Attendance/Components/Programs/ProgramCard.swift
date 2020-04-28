@@ -11,18 +11,20 @@ import Grid
 import SwiftUI
 
 struct ProgramCard: View {
-    @ObservedObject var appState: AppState = .shared
-
     @State private var tag: Int? = 0
+    @State private var isLoading = false
+    @EnvironmentObject var appState: AppState
 
     var program: Program
-    var color: Color?
+    var color: UIColor
+    var gradient: Gradient
 
-    private var opacity = 0.24
+    private var opacity = 0.36
 
     init(program: Program) {
         self.program = program
-        self.color = themeColors.first(where: { $0.key == program.color })?.value
+        self.color = uiThemeColors[program.color]!
+        self.gradient = colorGradients[program.color]!
     }
 
     var body: some View {
@@ -30,8 +32,13 @@ struct ProgramCard: View {
             Group {
                 HStack(alignment: .top) {
                     VStack(alignment: .leading) {
+                        HStack(alignment: .center) {
+                            VStack(alignment: .center) {
+                                ActivityIndicator(isAnimating: self.$isLoading, style: .large)
+                            }
+                        }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                         Spacer()
-                        NavigationLink(destination: Home(program: program).navigationBarBackButtonHidden(true), tag: 1, selection: $tag) { EmptyView() }
+                        NavigationLink(destination: Home(program: program, appState: appState).navigationBarBackButtonHidden(true), tag: 1, selection: $tag) { EmptyView() }
                         Group {
                             Text(program.name)
                                 .font(.headline)
@@ -49,13 +56,18 @@ struct ProgramCard: View {
                     Spacer()
                 }
                 .padding()
-                .background(color)
+                .background(LinearGradient(gradient: self.gradient, startPoint: .bottomTrailing, endPoint: .topLeading))
                 .cornerRadius(8)
-                .shadow(color: color?.opacity(opacity) ?? Color.gray.opacity(opacity), radius: 6, x: 0, y: 2)
+                .shadow(color: Color(self.color).opacity(opacity), radius: 6, x: 0, y: 2)
             }
             .onTapGesture {
+                self.isLoading = true
+
                 self.tag = 1
             }
+        }
+        .onDisappear {
+            self.isLoading = false
         }
         .buttonStyle(ScaleButtonStyle(scaleAmount: 0.95))
         .frame(minWidth: 75, maxWidth: 165, minHeight: 100, maxHeight: 215)
@@ -78,6 +90,6 @@ struct ProgramCard_Previews: PreviewProvider {
             rows: .fixed(215),
             spacing: 16,
             padding: EdgeInsets(top: 32, leading: 16, bottom: 32, trailing: 16)
-        )).previewDevice("iPad Pro (11-inch)")
+        )).environmentObject(AppState())
     }
 }

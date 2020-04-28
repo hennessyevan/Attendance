@@ -11,7 +11,6 @@ import Grid
 import SwiftUI
 
 struct Programs: View {
-    @ObservedObject var appState: AppState = .shared
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(
         entity: Program.entity(),
@@ -21,7 +20,7 @@ struct Programs: View {
     @State private var showingNewProgram = false
 
     let gridStyle = ModularGridStyle(
-        columns: .min(165),
+        columns: .min(155),
         rows: .fixed(215),
         spacing: 16,
         padding: EdgeInsets(top: 32, leading: 16, bottom: 32, trailing: 16)

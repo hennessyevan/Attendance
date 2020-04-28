@@ -26,8 +26,12 @@ extension Program {
     public var attendeesArray: [Attendee] {
         let set = attendees as? Set<Attendee> ?? []
 
+        // Sort by lastName then grade
         return set.sorted {
-            $0.lastName < $1.lastName
+            if $0.lastName == $1.lastName {
+                return $0.grade < $1.grade
+            }
+            return $0.lastName < $1.lastName
         }
     }
     

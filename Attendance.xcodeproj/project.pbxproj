@@ -14,8 +14,11 @@
 		3521D80F242AE59B00FCB101 /* GeometryGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3521D80E242AE59B00FCB101 /* GeometryGetter.swift */; };
 		3521D812242B0ACD00FCB101 /* NewAttendee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3521D811242B0ACD00FCB101 /* NewAttendee.swift */; };
 		3526A3792450FFD400DD3E49 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3526A3782450FFD400DD3E49 /* AppState.swift */; };
+		35396C8D245779770030B3ED /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35396C8C245779760030B3ED /* Toast.swift */; };
+		35396C902457942C0030B3ED /* KeyboardObserving in Frameworks */ = {isa = PBXBuildFile; productRef = 35396C8F2457942C0030B3ED /* KeyboardObserving */; };
+		35396C9224579AF90030B3ED /* AvoidKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35396C9124579AF90030B3ED /* AvoidKeyboard.swift */; };
+		35396C94245893620030B3ED /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35396C93245893620030B3ED /* ActivityIndicator.swift */; };
 		3573601924536F7A00BC5C56 /* Image+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3573601824536F7A00BC5C56 /* Image+Extensions.swift */; };
-		3573601D2453C30A00BC5C56 /* KeyboardAdaptive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3573601C2453C30A00BC5C56 /* KeyboardAdaptive.swift */; };
 		3573601F2453DD1B00BC5C56 /* Button+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3573601E2453DD1B00BC5C56 /* Button+Extensions.swift */; };
 		3573602A2454A31400BC5C56 /* Event+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357360222454A31400BC5C56 /* Event+CoreDataClass.swift */; };
 		3573602B2454A31400BC5C56 /* Event+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357360232454A31400BC5C56 /* Event+CoreDataProperties.swift */; };
@@ -25,6 +28,11 @@
 		357360302454A31400BC5C56 /* Program+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357360282454A31400BC5C56 /* Program+CoreDataClass.swift */; };
 		357360312454A31400BC5C56 /* Program+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357360292454A31400BC5C56 /* Program+CoreDataProperties.swift */; };
 		357360332454A46200BC5C56 /* Event+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357360322454A46200BC5C56 /* Event+Extensions.swift */; };
+		35803ACA245657E200FAFA42 /* NavigationBarBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35803AC9245657E200FAFA42 /* NavigationBarBuilder.swift */; };
+		35803ACE2457353600FAFA42 /* EventButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35803ACD2457353600FAFA42 /* EventButton.swift */; };
+		35803AD52457630B00FAFA42 /* Color in Frameworks */ = {isa = PBXBuildFile; productRef = 35803AD42457630B00FAFA42 /* Color */; };
+		35803AD824576AF500FAFA42 /* SimpleHaptics in Frameworks */ = {isa = PBXBuildFile; productRef = 35803AD724576AF500FAFA42 /* SimpleHaptics */; };
+		35803ADA24576EC100FAFA42 /* PublishedUserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35803AD924576EC100FAFA42 /* PublishedUserDefault.swift */; };
 		35977A492452695500E90CC8 /* PropertyNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35977A482452695500E90CC8 /* PropertyNames.swift */; };
 		35977A5024528FD900E90CC8 /* CaptureImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35977A4F24528FD900E90CC8 /* CaptureImageView.swift */; };
 		35977A53245290E500E90CC8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35977A52245290E500E90CC8 /* Coordinator.swift */; };
@@ -77,8 +85,10 @@
 		3521D80E242AE59B00FCB101 /* GeometryGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryGetter.swift; sourceTree = "<group>"; };
 		3521D811242B0ACD00FCB101 /* NewAttendee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAttendee.swift; sourceTree = "<group>"; };
 		3526A3782450FFD400DD3E49 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		35396C8C245779760030B3ED /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		35396C9124579AF90030B3ED /* AvoidKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvoidKeyboard.swift; sourceTree = "<group>"; };
+		35396C93245893620030B3ED /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		3573601824536F7A00BC5C56 /* Image+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extensions.swift"; sourceTree = "<group>"; };
-		3573601C2453C30A00BC5C56 /* KeyboardAdaptive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAdaptive.swift; sourceTree = "<group>"; };
 		3573601E2453DD1B00BC5C56 /* Button+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Extensions.swift"; sourceTree = "<group>"; };
 		357360222454A31400BC5C56 /* Event+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Event+CoreDataClass.swift"; sourceTree = "<group>"; };
 		357360232454A31400BC5C56 /* Event+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Event+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -88,6 +98,9 @@
 		357360282454A31400BC5C56 /* Program+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Program+CoreDataClass.swift"; path = "../Program+CoreDataClass.swift"; sourceTree = "<group>"; };
 		357360292454A31400BC5C56 /* Program+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Program+CoreDataProperties.swift"; path = "../Program+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		357360322454A46200BC5C56 /* Event+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Event+Extensions.swift"; sourceTree = "<group>"; };
+		35803AC9245657E200FAFA42 /* NavigationBarBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarBuilder.swift; sourceTree = "<group>"; };
+		35803ACD2457353600FAFA42 /* EventButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventButton.swift; sourceTree = "<group>"; };
+		35803AD924576EC100FAFA42 /* PublishedUserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishedUserDefault.swift; sourceTree = "<group>"; };
 		35977A482452695500E90CC8 /* PropertyNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyNames.swift; sourceTree = "<group>"; };
 		35977A4F24528FD900E90CC8 /* CaptureImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureImageView.swift; sourceTree = "<group>"; };
 		35977A52245290E500E90CC8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -126,7 +139,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35803AD52457630B00FAFA42 /* Color in Frameworks */,
+				35396C902457942C0030B3ED /* KeyboardObserving in Frameworks */,
 				35A609BB23EBA8510083DA45 /* Grid in Frameworks */,
+				35803AD824576AF500FAFA42 /* SimpleHaptics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,8 +188,19 @@
 				3521D80E242AE59B00FCB101 /* GeometryGetter.swift */,
 				35977A482452695500E90CC8 /* PropertyNames.swift */,
 				35977A5424529C2900E90CC8 /* ModalView.swift */,
+				35396C8C245779760030B3ED /* Toast.swift */,
+				35396C9124579AF90030B3ED /* AvoidKeyboard.swift */,
+				35396C93245893620030B3ED /* ActivityIndicator.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		35803AD224575D7700FAFA42 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				35803ACD2457353600FAFA42 /* EventButton.swift */,
+			);
+			path = Event;
 			sourceTree = "<group>";
 		};
 		35977A51245290CC00E90CC8 /* CameraPicker */ = {
@@ -233,7 +260,6 @@
 				357360322454A46200BC5C56 /* Event+Extensions.swift */,
 				3573601824536F7A00BC5C56 /* Image+Extensions.swift */,
 				35BAEE1423EB20220010CD58 /* Info.plist */,
-				3573601C2453C30A00BC5C56 /* KeyboardAdaptive.swift */,
 				35BAEE1123EB20220010CD58 /* LaunchScreen.storyboard */,
 				357360262454A31400BC5C56 /* LocalState+CoreDataClass.swift */,
 				35B76F892454AB2C00B56E7E /* LocalState+CoreDataProperties.swift */,
@@ -245,6 +271,8 @@
 				35C05A7D244E66910007D90B /* String+Extensions.swift */,
 				35977A562452A31700E90CC8 /* UIImage+Extensions.swift */,
 				35BAEE4923EB778E0010CD58 /* Views */,
+				35803AC9245657E200FAFA42 /* NavigationBarBuilder.swift */,
+				35803AD924576EC100FAFA42 /* PublishedUserDefault.swift */,
 			);
 			path = Attendance;
 			sourceTree = "<group>";
@@ -280,6 +308,7 @@
 			children = (
 				3526A37C24521AB900DD3E49 /* Attendee */,
 				35977A51245290CC00E90CC8 /* CameraPicker */,
+				35803AD224575D7700FAFA42 /* Event */,
 				3526A37D24521ACE00DD3E49 /* Forms */,
 				35D7B1AA2450EEC1004D14A0 /* Programs */,
 				3526A37E24521AD900DD3E49 /* Utils */,
@@ -324,6 +353,9 @@
 			name = Attendance;
 			packageProductDependencies = (
 				35A609BA23EBA8510083DA45 /* Grid */,
+				35803AD42457630B00FAFA42 /* Color */,
+				35803AD724576AF500FAFA42 /* SimpleHaptics */,
+				35396C8F2457942C0030B3ED /* KeyboardObserving */,
 			);
 			productName = "YM Signup";
 			productReference = 35BAEE0023EB20210010CD58 /* Attendance.app */;
@@ -399,6 +431,9 @@
 			mainGroup = 35BAEDF723EB20210010CD58;
 			packageReferences = (
 				35A609B923EBA8510083DA45 /* XCRemoteSwiftPackageReference "swiftui-grid" */,
+				35803AD32457630B00FAFA42 /* XCRemoteSwiftPackageReference "Color" */,
+				35803AD624576AF500FAFA42 /* XCRemoteSwiftPackageReference "simple-haptics" */,
+				35396C8E2457942C0030B3ED /* XCRemoteSwiftPackageReference "KeyboardObserving" */,
 			);
 			productRefGroup = 35BAEE0123EB20210010CD58 /* Products */;
 			projectDirPath = "";
@@ -447,6 +482,7 @@
 				3521D7EB242977C700FCB101 /* AttendeeModal.swift in Sources */,
 				35C05A7E244E66910007D90B /* String+Extensions.swift in Sources */,
 				3573602D2454A31400BC5C56 /* Attendee+CoreDataProperties.swift in Sources */,
+				35396C94245893620030B3ED /* ActivityIndicator.swift in Sources */,
 				357360312454A31400BC5C56 /* Program+CoreDataProperties.swift in Sources */,
 				3526A3792450FFD400DD3E49 /* AppState.swift in Sources */,
 				35C05A7C244E4DFF0007D90B /* ThemeColorPicker.swift in Sources */,
@@ -455,12 +491,15 @@
 				35BAEE0423EB20210010CD58 /* AppDelegate.swift in Sources */,
 				35977A492452695500E90CC8 /* PropertyNames.swift in Sources */,
 				35977A53245290E500E90CC8 /* Coordinator.swift in Sources */,
+				35803ACE2457353600FAFA42 /* EventButton.swift in Sources */,
 				3573601F2453DD1B00BC5C56 /* Button+Extensions.swift in Sources */,
 				3521D80F242AE59B00FCB101 /* GeometryGetter.swift in Sources */,
 				3521D809242A730600FCB101 /* AllAttendees.swift in Sources */,
 				35D7B1A9244F6B9C004D14A0 /* Programs.swift in Sources */,
+				35803ADA24576EC100FAFA42 /* PublishedUserDefault.swift in Sources */,
 				35D7B1AE2450F32C004D14A0 /* ProgramCard.swift in Sources */,
 				35A609B423EB99B80083DA45 /* Attendance.xcdatamodeld in Sources */,
+				35396C9224579AF90030B3ED /* AvoidKeyboard.swift in Sources */,
 				35BAEE0623EB20210010CD58 /* SceneDelegate.swift in Sources */,
 				3573602B2454A31400BC5C56 /* Event+CoreDataProperties.swift in Sources */,
 				35D01E0D242C30E00035B200 /* Program+Extensions.swift in Sources */,
@@ -470,14 +509,15 @@
 				3521D80B242AB35F00FCB101 /* Attendee+Extensions.swift in Sources */,
 				35BAEE0B23EB20210010CD58 /* ContentView.swift in Sources */,
 				35B76F8A2454AB2C00B56E7E /* LocalState+CoreDataProperties.swift in Sources */,
-				3573601D2453C30A00BC5C56 /* KeyboardAdaptive.swift in Sources */,
 				3521D80D242AB4D700FCB101 /* DataHelper.swift in Sources */,
 				357360332454A46200BC5C56 /* Event+Extensions.swift in Sources */,
 				35BAEE3B23EB30370010CD58 /* AttendeeCard.swift in Sources */,
 				35BAEE4323EB74C30010CD58 /* BlurView.swift in Sources */,
 				3521D812242B0ACD00FCB101 /* NewAttendee.swift in Sources */,
+				35803ACA245657E200FAFA42 /* NavigationBarBuilder.swift in Sources */,
 				35BAEE4B23EB779A0010CD58 /* Home.swift in Sources */,
 				3573602E2454A31400BC5C56 /* LocalState+CoreDataClass.swift in Sources */,
+				35396C8D245779770030B3ED /* Toast.swift in Sources */,
 				357360302454A31400BC5C56 /* Program+CoreDataClass.swift in Sources */,
 				35977A572452A31700E90CC8 /* UIImage+Extensions.swift in Sources */,
 			);
@@ -816,6 +856,30 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		35396C8E2457942C0030B3ED /* XCRemoteSwiftPackageReference "KeyboardObserving" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nickffox/KeyboardObserving";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.0;
+			};
+		};
+		35803AD32457630B00FAFA42 /* XCRemoteSwiftPackageReference "Color" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/soffes/Color.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.2;
+			};
+		};
+		35803AD624576AF500FAFA42 /* XCRemoteSwiftPackageReference "simple-haptics" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hallee/simple-haptics";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.5;
+			};
+		};
 		35A609B923EBA8510083DA45 /* XCRemoteSwiftPackageReference "swiftui-grid" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/spacenation/swiftui-grid";
@@ -827,6 +891,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		35396C8F2457942C0030B3ED /* KeyboardObserving */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 35396C8E2457942C0030B3ED /* XCRemoteSwiftPackageReference "KeyboardObserving" */;
+			productName = KeyboardObserving;
+		};
+		35803AD42457630B00FAFA42 /* Color */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 35803AD32457630B00FAFA42 /* XCRemoteSwiftPackageReference "Color" */;
+			productName = Color;
+		};
+		35803AD724576AF500FAFA42 /* SimpleHaptics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 35803AD624576AF500FAFA42 /* XCRemoteSwiftPackageReference "simple-haptics" */;
+			productName = SimpleHaptics;
+		};
 		35A609BA23EBA8510083DA45 /* Grid */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 35A609B923EBA8510083DA45 /* XCRemoteSwiftPackageReference "swiftui-grid" */;

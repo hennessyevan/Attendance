@@ -13,26 +13,30 @@ import SwiftUI
 struct Home: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var appState: AppState
 
     var program: Program
-    var fetchRequest: FetchRequest<Program>
-    var fetchedResults: FetchedResults<Program> { fetchRequest.wrappedValue }
+    var initAppState: AppState
+    var programFetchRequest: FetchRequest<Program>
+    var fetchedProgram: FetchedResults<Program> { programFetchRequest.wrappedValue }
+
     var color: UIColor
 
-    init(program: Program) {
+    init(program: Program, appState: AppState) {
         self.program = program
-        self.fetchRequest = FetchRequest(
+        self.initAppState = appState
+        self.programFetchRequest = FetchRequest(
             entity: Program.entity(),
             sortDescriptors: [NSSortDescriptor(keyPath: \Program.name, ascending: true)],
             predicate: NSPredicate(format: "id == %@", program.id as CVarArg)
         )
+
         self.color = uiThemeColors[program.color] ?? UIColor.systemBlue
     }
 
     @State private var showingNewAttendee = false
     @State private var isDirty = false
     @State private var confirmStop = false
-    @State private var session = false
 
     let gridStyle = StaggeredGridStyle(
         tracks: .min(250),
@@ -43,8 +47,9 @@ struct Home: View {
 
     var body: some View {
         ZStack {
-            Grid(self.fetchedResults.first!.attendeesArray) { attendee in
-                AttendeeCard(attendee: attendee).environment(\.managedObjectContext, self.managedObjectContext)
+            Grid(self.fetchedProgram.first!.attendeesArray) { attendee in
+                AttendeeCard(attendee: attendee, currentEventID: self.appState.currentEvent)
+                    .environment(\.managedObjectContext, self.managedObjectContext)
             }
             .navigationBarTitle(program.name)
             .navigationBarItems(
@@ -56,44 +61,14 @@ struct Home: View {
                     Image(systemName: "plus.circle.fill").resizable().frame(width: 24, height: 24)
                         .padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 0))
                 }.sheet(isPresented: $showingNewAttendee, content: {
-                    NewAttendee(program: self.program).environment(\.managedObjectContext, self.managedObjectContext)
+                    NewAttendee(program: self.program)
+                        .environment(\.managedObjectContext, self.managedObjectContext)
+
                 })
             )
             .gridStyle(self.gridStyle)
 
-            VStack(alignment: .center) {
-                Spacer()
-                HStack(alignment: .center) {
-                    Spacer()
-                    Button(action: {
-                        withAnimation {
-                            self.session.toggle()
-                        }
-                    }) {
-                        HStack(alignment: .center, spacing: 0) {
-                            Image(systemName: self.session ? "stop.fill" : "play.fill")
-                                .font(.system(size: 22))
-                                .frame(width: 60, height: 60)
-                                .foregroundColor(.white)
-
-                            Text("Start New Session")
-                                .foregroundColor(.white)
-                                .font(.headline)
-                                .fontWeight(.bold)
-                                .padding(.trailing, 28)
-                                .frame(maxWidth: self.session ? 0 : 200, maxHeight: 28)
-                                .clipped()
-                                .animation(.spring(response: 0.0, dampingFraction: 0.2))
-                        }
-                        .background(self.session ? Color.red : Color.green)
-                        .cornerRadius(.infinity)
-                        .padding(20)
-                        .shadow(color: self.session ? Color.red.opacity(0.5) : Color.green.opacity(0.5), radius: 12, x: 0, y: 6)
-                        .animation(.easeInOut)
-                    }
-                    .buttonStyle(ScaleButtonStyle())
-                }
-            }.edgesIgnoringSafeArea(.all)
+            EventButton(program: program).environment(\.managedObjectContext, managedObjectContext)
         }
     }
 }
@@ -118,7 +93,9 @@ struct Home_Previews: PreviewProvider {
         }
 
         return NavigationView {
-            Home(program: program).environment(\.managedObjectContext, context)
+            Home(program: program, appState: AppState())
+                .environment(\.managedObjectContext, context)
+                .environmentObject(AppState())
         }.navigationViewStyle(StackNavigationViewStyle())
     }
 }

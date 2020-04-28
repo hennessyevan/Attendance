@@ -61,13 +61,12 @@ struct NewAttendee: View {
                             .onTapGesture {
                                 self.showCaptureImageView = true
                             }
+                    } else {
+                        Image(uiImage: self.fields.image!)
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 150, height: 150, alignment: .center)
+                            .cornerRadius(.infinity)
                     }
-//                    if self.fields.image != nil {
-//                        Image(self.fields.image!)
-//                            .aspectRatio(contentMode: .fill)
-//                            .frame(width: 150, height: 150, alignment: .center)
-//                            .cornerRadius(.infinity)
-//                    }
 
                     Button(self.fields.image == nil ? "Add Photo" : "Edit") {
                         self.showCaptureImageView = true
@@ -76,8 +75,8 @@ struct NewAttendee: View {
                 .padding(.vertical, 32)
                 .frame(minWidth: 0, maxWidth: .infinity)
 
-                TextField("First Name", text: self.$fields.firstName)
-                TextField("Last Name", text: self.$fields.lastName)
+                TextField("First Name", text: self.$fields.firstName).tag(0)
+                TextField("Last Name", text: self.$fields.lastName).tag(1)
 
                 Picker(selection: self.$fields.grade, label: Text("Grade")) {
                     ForEach(0 ..< self.grades.count, id: \.self) {
@@ -118,7 +117,6 @@ struct NewAttendee: View {
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .presentation(isModal: self.$fields.dirty)
-        .keyboardAdaptive()
     }
 
     struct NewAttendee_Previews: PreviewProvider {

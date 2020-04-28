@@ -6,6 +6,7 @@
 //  Copyright © 2020 Evan Hennessy. All rights reserved.
 //
 
+import Color
 import SwiftUI
 import UIKit
 
@@ -21,6 +22,30 @@ let uiThemeColors: [String: UIColor] = [
     "green": .systemGreen,
     "orange": .systemOrange,
     "purple": .systemPurple
+]
+
+let colorGradients: [String: Gradient] = [
+    "blue": Gradient(colors: [
+        Color(UIColor.systemBlue),
+        Color(UIColor.systemBlue.saturating(by: 0.5).lightening(by: 0.2))
+    ]),
+    "red": Gradient(colors: [
+        Color(UIColor.systemRed),
+        Color(UIColor.systemRed.saturating(by: 0.5).lightening(by: 0.2))
+    ]),
+    "green": Gradient(colors: [
+        Color(UIColor.systemGreen),
+        Color(UIColor.systemGreen.saturating(by: 0.5).lightening(by: 0.2))
+    ]),
+    "orange": Gradient(colors: [
+        Color(UIColor.systemOrange),
+        Color(UIColor.systemOrange.saturating(by: 0.5).lightening(by: 0.2))
+    ]),
+    "purple": Gradient(colors: [
+        Color(UIColor.systemPurple),
+        Color(UIColor.systemPurple.saturating(by: 0.5).lightening(by: 0.2)
+        )
+    ])
 ]
 
 let themeColors: [ThemeColor] = [
@@ -79,7 +104,7 @@ struct ThemeColorPicker: View {
     }
 }
 
-struct ThemeColorPicker_Previews: PreviewProvider {   
+struct ThemeColorPicker_Previews: PreviewProvider {
     static var previews: some View {
         ThemeColorPicker(label: "Label", selected: .constant(0))
     }

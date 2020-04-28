@@ -6,15 +6,19 @@
 //  Copyright © 2020 Evan Hennessy. All rights reserved.
 //
 
+import Combine
 import Foundation
 
 final class AppState: ObservableObject {
-    
-    private init() { }
-    
-    static let shared = AppState()
-    
-    @Published var program: UUID? = nil
-    
-    var test = "Test"
+    let objectWillChange = ObservableObjectPublisher()
+
+    @UserDefault(key: "currentEvent", defaultValue: "") var currentEvent: String
+
+    private var notificationSubscription: AnyCancellable?
+
+    init() {
+        notificationSubscription = NotificationCenter.default.publisher(for: UserDefaults.didChangeNotification).sink { _ in
+            self.objectWillChange.send()
+        }
+    }
 }

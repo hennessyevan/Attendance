@@ -7,21 +7,46 @@
 //
 
 import CoreData
+import SimpleHaptics
 import SwiftUI
 
 struct AttendeeCard: View {
     var attendee: Attendee
+    var currentEventID: String
     
     let cornerRadius: CGFloat = 8
     
     @Environment(\.managedObjectContext) var managedObjectContext
+    @EnvironmentObject private var haptics: SimpleHapticGenerator
+    @EnvironmentObject private var appState: AppState
     
-    @State private var scale: CGFloat = 1
     @State private var show_modal: Bool = false
-    @State private var rect: CGRect = CGRect()
+    
+    var eventFetchRequest: FetchRequest<Event>
+    var currentEvent: Event? { eventFetchRequest.wrappedValue.first }
+    
+    init(attendee: Attendee, currentEventID: String) {
+        self.attendee = attendee
+        self.eventFetchRequest = FetchRequest(
+            entity: Event.entity(),
+            sortDescriptors: [],
+            predicate: NSPredicate(format: "id == %@", currentEventID.isEmpty ? UUID() as CVarArg : UUID(uuidString: currentEventID)! as CVarArg)
+        )
+        self.currentEventID = currentEventID
+    }
+    
+    func attendeeIsChecked(attendee: Attendee, currentEvent: Event?) -> Bool {
+        if currentEvent != nil && currentEvent!.attendeesArray.contains(attendee) {
+            return true
+        }
+        
+        return false
+    }
     
     var body: some View {
-        Button(action: {}) {
+        Button(action: {
+            // EMPTY
+        }) {
             Group {
                 VStack(alignment: .leading, spacing: 12) {
                     HStack(alignment: .center) {
@@ -51,16 +76,26 @@ struct AttendeeCard: View {
                     }
                     .padding(.vertical, 16)
                     .padding(.horizontal, 16)
-                    .background(Color(UIColor.systemGray5))
+                    .background(attendeeIsChecked(attendee: attendee, currentEvent: currentEvent) ? Color.green : Color(UIColor.systemGray5))
                 }
             }
             .onTapGesture {
-                print("tap")
+                if self.currentEvent == nil { return }
+                    
+                if self.currentEvent!.attendeesArray.contains(self.attendee) {
+                    self.currentEvent!.removeFromAttendees(self.attendee)
+                } else {
+                    self.currentEvent!.addToAttendees(self.attendee)
+                }
+                try? self.managedObjectContext.save()
             }
             .onLongPressGesture {
+                try? self.haptics.fire(intensity: 1, sharpness: 1)
+                
                 self.show_modal = true
             }
         }
+        .disabled(appState.currentEvent.isEmpty)
         .buttonStyle(ScaleButtonStyle(scaleAmount: 0.95))
         .cornerRadius(cornerRadius)
         .sheet(isPresented: self.$show_modal) {
@@ -82,7 +117,8 @@ struct AttendeeCard_Previews: PreviewProvider {
         
         return HStack {
             AttendeeCard(
-                attendee: attendee
+                attendee: attendee,
+                currentEventID: ""
             )
         }
         .environment(\.managedObjectContext, context)

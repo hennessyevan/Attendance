@@ -9,6 +9,7 @@
         <attribute name="sex" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="events" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="attendees" inverseEntity="Event"/>
         <relationship name="programs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Program" inverseName="attendees" inverseEntity="Program"/>
+        <relationship name="timestamps" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Timestamp" inverseName="attendee" inverseEntity="Timestamp"/>
     </entity>
     <entity name="Event" representedClassName="Event" syncable="YES">
         <attribute name="createdAt" attributeType="Date" defaultDateTimeInterval="609525780" usesScalarValueType="NO"/>
@@ -17,9 +18,7 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="attendees" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Attendee" inverseName="events" inverseEntity="Attendee"/>
         <relationship name="program" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Program" inverseName="events" inverseEntity="Program"/>
-    </entity>
-    <entity name="LocalState" representedClassName="LocalState" syncable="YES">
-        <attribute name="currentEvent" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="timestamps" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Timestamp" inverseName="event" inverseEntity="Timestamp"/>
     </entity>
     <entity name="Program" representedClassName="Program" syncable="YES">
         <attribute name="color" optional="YES" attributeType="String"/>
@@ -33,10 +32,17 @@
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
+    <entity name="Timestamp" representedClassName="Timestamp" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="signedInAt" attributeType="Date" defaultDateTimeInterval="609789420" usesScalarValueType="NO"/>
+        <attribute name="signedOutAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="attendee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Attendee" inverseName="timestamps" inverseEntity="Attendee"/>
+        <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="timestamps" inverseEntity="Event"/>
+    </entity>
     <elements>
-        <element name="Attendee" positionX="-54" positionY="-9" width="128" height="163"/>
-        <element name="Event" positionX="92.1640625" positionY="247.46484375" width="128" height="133"/>
-        <element name="LocalState" positionX="99" positionY="153" width="128" height="58"/>
+        <element name="Attendee" positionX="-54" positionY="-9" width="128" height="178"/>
+        <element name="Event" positionX="92.1640625" positionY="247.46484375" width="128" height="148"/>
         <element name="Program" positionX="232.2109375" positionY="36.046875" width="132.47265625" height="118"/>
+        <element name="Timestamp" positionX="90" positionY="144" width="128" height="118"/>
     </elements>
 </model>

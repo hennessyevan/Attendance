@@ -38,7 +38,7 @@ struct ProgramCard: View {
                             }
                         }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                         Spacer()
-                        NavigationLink(destination: Home(program: program, appState: appState).navigationBarBackButtonHidden(true), tag: 1, selection: $tag) { EmptyView() }
+                        NavigationLink(destination: Home(program: program).navigationBarBackButtonHidden(true), tag: 1, selection: $tag) { EmptyView() }
                         Group {
                             Text(program.name)
                                 .font(.headline)

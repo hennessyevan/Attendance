@@ -69,19 +69,30 @@ struct AttendeeCard: View {
                         }
                         Spacer()
                         
-                        Circle()
-                            .stroke(lineWidth: 2)
-                            .foregroundColor(Color(UIColor.systemGray2))
-                            .frame(width: 25, height: 25)
+                        ZStack {
+                            if attendeeIsChecked(attendee: self.attendee, currentEvent: self.currentEvent) {
+                                Image(systemName: "checkmark.circle.fill")
+                                    .font(.system(size: 25))
+                                    .foregroundColor(.green)
+                            }
+                            Circle()
+                                .stroke(lineWidth: 2)
+                                .foregroundColor(
+                                    attendeeIsChecked(attendee: self.attendee, currentEvent: self.currentEvent)
+                                        ? Color.green
+                                        : Color(UIColor.systemGray2)
+                                )
+                                .frame(width: 25, height: 25)
+                        }
                     }
                     .padding(.vertical, 16)
                     .padding(.horizontal, 16)
-                    .background(attendeeIsChecked(attendee: attendee, currentEvent: currentEvent) ? Color.green : Color(UIColor.systemGray5))
+                    .background(Color(UIColor.systemGray5))
                 }
             }
             .onTapGesture {
                 if self.currentEvent == nil { return }
-                    
+                
                 if self.currentEvent!.attendeesArray.contains(self.attendee) {
                     self.currentEvent!.removeFromAttendees(self.attendee)
                 } else {
@@ -109,19 +120,34 @@ struct AttendeeCard: View {
 struct AttendeeCard_Previews: PreviewProvider {
     static var previews: some View {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        let currentEvent = NSEntityDescription.insertNewObject(forEntityName: "Event", into: context) as! Event
+        currentEvent.createdAt = Date()
+        currentEvent.id = UUID()
+        
         let attendee = NSEntityDescription.insertNewObject(forEntityName: "Attendee", into: context) as! Attendee
         attendee.firstName = "Evan"
         attendee.lastName = "Hennessy"
         attendee.grade = 10
         attendee.id = UUID()
+        currentEvent.addToAttendees(attendee)
         
-        return HStack {
+        let appState = AppState()
+        appState.currentEvent = currentEvent.id.uuidString
+        
+        return VStack {
             AttendeeCard(
                 attendee: attendee,
                 currentEventID: ""
             )
+            AttendeeCard(
+                attendee: attendee,
+                currentEventID: currentEvent.id.uuidString
+            )
         }
         .environment(\.managedObjectContext, context)
+        .environmentObject(AppState())
+        .environmentObject(SimpleHapticGenerator())
         .padding()
     }
 }

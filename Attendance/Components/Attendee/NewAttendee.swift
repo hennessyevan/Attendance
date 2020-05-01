@@ -43,8 +43,12 @@ struct NewAttendee: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
     @ObservedObject var fields = NewAttendeeFormFields()
+    @State private var showImageModal = false
+    @State private var showEditImageView = false
+    @State private var showCameraView = false
 
-    @State private var showCaptureImageView = false
+    @State var tempImage = UIImage(systemName: "person.circle.fill")
+    @State var image: UIImage? = nil
 
     let grades: [Int32] = [6, 7, 8, 9, 10, 11, 12]
 
@@ -52,24 +56,16 @@ struct NewAttendee: View {
         NavigationView {
             Form {
                 VStack {
-                    if self.fields.image == nil {
-                        Image(systemName: "person.crop.circle.fill")
-                            .foregroundColor(.gray)
-                            .font(.system(size: 150))
-                            .frame(width: 150, height: 150, alignment: .center)
-                            .cornerRadius(.infinity)
-                            .onTapGesture {
-                                self.showCaptureImageView = true
-                            }
-                    } else {
-                        Image(uiImage: self.fields.image!)
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 150, height: 150, alignment: .center)
-                            .cornerRadius(.infinity)
-                    }
+                    Image(uiImage: (self.image ?? self.tempImage)!)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 150, height: 150, alignment: .center)
+                        .clipShape(Circle())
 
-                    Button(self.fields.image == nil ? "Add Photo" : "Edit") {
-                        self.showCaptureImageView = true
+                    Button(self.image == nil ? "Add Photo" : "Edit") {
+                        self.showCameraView = true
+                    }.sheet(isPresented: self.$showCameraView) {
+                        CaptureImageView(isShown: self.$showCameraView, image: self.$image)
                     }
                 }
                 .padding(.vertical, 32)
@@ -90,6 +86,7 @@ struct NewAttendee: View {
                     }
                 }
             }
+            .keyboardAdaptive()
             .navigationBarTitle("New Attendee", displayMode: .inline)
             .navigationBarItems(
                 leading: Button(action: {
@@ -105,7 +102,7 @@ struct NewAttendee: View {
                     attendee.grade = self.grades[self.fields.grade]
                     attendee.sex = Int16(self.fields.sex)
                     attendee.id = UUID()
-                    attendee.image = self.fields.image?.jpegData(compressionQuality: 1.0)
+                    attendee.image = self.image?.jpegData(compressionQuality: 1.0)
 
                     try? self.managedObjectContext.save()
                     self.presentationMode.wrappedValue.dismiss()
@@ -116,7 +113,6 @@ struct NewAttendee: View {
             )
         }
         .navigationViewStyle(StackNavigationViewStyle())
-        .presentation(isModal: self.$fields.dirty)
     }
 
     struct NewAttendee_Previews: PreviewProvider {

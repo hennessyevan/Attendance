@@ -50,6 +50,12 @@ struct AttendeeCard: View {
             Group {
                 VStack(alignment: .leading, spacing: 12) {
                     HStack(alignment: .center) {
+                        if attendee.image != nil {
+                            Image(uiImage: UIImage(data: attendee.image!)!)
+                                .resizable()
+                                .frame(width: 40, height: 40)
+                                .clipShape(Circle())
+                        }
                         VStack(alignment: .leading) {
                             HStack {
                                 Text("\(attendee.firstName)")
@@ -111,7 +117,6 @@ struct AttendeeCard: View {
         .cornerRadius(cornerRadius)
         .sheet(isPresented: self.$show_modal) {
             AttendeeModal(attendee: self.attendee)
-                .animation(.spring())
                 .environment(\.managedObjectContext, self.managedObjectContext)
         }
     }

@@ -11,23 +11,27 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    static var shared: AppDelegate {
+        return UIApplication.shared.delegate as! AppDelegate
+    }
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
         // Show DB Directory
-        if let directoryLocation = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).last { print("Documents Directory: \(directoryLocation)Application Support") }
+//        if let directoryLocation = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).last { print("Documents Directory: \(directoryLocation)Application Support") }
 
         /*
          Remove all seed data
          */
-        do {
-            try persistentContainer.viewContext.execute(NSBatchDeleteRequest(fetchRequest: Attendee.fetchRequest()))
-            try persistentContainer.viewContext.execute(NSBatchDeleteRequest(fetchRequest: Event.fetchRequest()))
-            try persistentContainer.viewContext.execute(NSBatchDeleteRequest(fetchRequest: Program.fetchRequest()))
-        } catch {}
-
-        let dataHelper = DataHelper(context: persistentContainer.viewContext)
-        dataHelper.seedAttendees()
+//        do {
+//            try persistentContainer.viewContext.execute(NSBatchDeleteRequest(fetchRequest: Attendee.fetchRequest()))
+//            try persistentContainer.viewContext.execute(NSBatchDeleteRequest(fetchRequest: Event.fetchRequest()))
+//            try persistentContainer.viewContext.execute(NSBatchDeleteRequest(fetchRequest: Program.fetchRequest()))
+//        } catch {}
+//
+//        let dataHelper = DataHelper(context: persistentContainer.viewContext)
+//        dataHelper.seedAttendees()
 
 //        dataHelper.printAllAttendees()
 
@@ -59,6 +63,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          */
         let container = NSPersistentCloudKitContainer(name: "Attendance")
 
+        // Enable remote notifications
+        guard let description = container.persistentStoreDescriptions.first else {
+            fatalError("###\(#function): Failed to retrieve a persistent store description.")
+        }
+        description.setOption(true as NSNumber, forKey: NSPersistentStoreRemoteChangeNotificationPostOptionKey)
+
         container.loadPersistentStores(completionHandler: { _, error in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
@@ -75,13 +85,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
+
+        container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+        container.viewContext.automaticallyMergesChangesFromParent = true
+
+        // Observe Core Data remote change notifications.
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(self.letusknow),
+            name: .NSPersistentStoreRemoteChange, object: nil)
+
         return container
     }()
+    
+    @objc
+    func letusknow() {
+        print("Got it")
+    }
 
     // MARK: - Core Data Saving support
 
     func saveContext() {
         let context = persistentContainer.viewContext
+
         if context.hasChanges {
             do {
                 try context.save()
@@ -94,3 +119,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 }
+
+extension NSManagedObjectContext {}

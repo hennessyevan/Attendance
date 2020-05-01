@@ -32,12 +32,10 @@ struct ProgramCard: View {
             Group {
                 HStack(alignment: .top) {
                     VStack(alignment: .leading) {
-                        HStack(alignment: .center) {
-                            VStack(alignment: .center) {
-                                ActivityIndicator(isAnimating: self.$isLoading, style: .large)
-                            }
-                        }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                        ActivityIndicator(isAnimating: self.$isLoading, style: .medium)
+
                         Spacer()
+
                         NavigationLink(destination: Home(program: program).navigationBarBackButtonHidden(true), tag: 1, selection: $tag) { EmptyView() }
                         Group {
                             Text(program.name)
@@ -58,7 +56,6 @@ struct ProgramCard: View {
                 .padding()
                 .background(LinearGradient(gradient: self.gradient, startPoint: .bottomTrailing, endPoint: .topLeading))
                 .cornerRadius(8)
-                .shadow(color: Color(self.color).opacity(opacity), radius: 6, x: 0, y: 2)
             }
             .onTapGesture {
                 self.isLoading = true
@@ -69,11 +66,13 @@ struct ProgramCard: View {
         .onDisappear {
             self.isLoading = false
         }
+        .shadow(color: Color(self.color).opacity(opacity), radius: 6, x: 0, y: 2)
         .buttonStyle(ScaleButtonStyle(scaleAmount: 0.95))
-        .frame(minWidth: 75, maxWidth: 165, minHeight: 100, maxHeight: 215)
+        .frame(width: 155, height: 215)
     }
 }
 
+#if DEBUG
 struct ProgramCard_Previews: PreviewProvider {
     static var previews: some View {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -85,11 +84,10 @@ struct ProgramCard_Previews: PreviewProvider {
         return Grid(0..<6) { _ in
             ProgramCard(program: program).environment(\.managedObjectContext, context)
                 .previewDevice("iPad Pro (11-inch)")
-        }.gridStyle(ModularGridStyle(
-            columns: .min(165),
-            rows: .fixed(215),
-            spacing: 16,
-            padding: EdgeInsets(top: 32, leading: 16, bottom: 32, trailing: 16)
-        )).environmentObject(AppState())
+        }
+        .gridStyle(ModularGridStyle(.vertical, columns: .min(155), rows: .fixed(215), spacing: 16))
+        .padding(EdgeInsets(top: 32, leading: 16, bottom: 32, trailing: 16))
+        .environmentObject(AppState())
     }
 }
+#endif

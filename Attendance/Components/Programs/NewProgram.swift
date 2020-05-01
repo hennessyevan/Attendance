@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-class NewProgramFormFields: ObservableObject, PropertyNames {
+class NewProgramFormFields: ObservableObject {
     @Published var name = ""
     @Published var selectedColor = 0
 

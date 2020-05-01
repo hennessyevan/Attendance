@@ -38,40 +38,42 @@ struct Home: View {
     @State private var sortedKey: attendeeSortKey = .lastName
 
     let gridStyle = StaggeredGridStyle(
+        .vertical,
         tracks: .min(250),
-        axis: .vertical,
-        spacing: 16,
-        padding: EdgeInsets(top: 32, leading: 16, bottom: 32, trailing: 16)
+        spacing: 16
     )
 
     var body: some View {
         ZStack {
-            Grid(self.fetchedProgram.first!.attendeesArray) { attendee in
-                AttendeeCard(attendee: attendee, currentEventID: self.appState.currentEvent)
-                    .environment(\.managedObjectContext, self.managedObjectContext)
-            }
-            .navigationBarTitle(program.name)
-            .navigationBarItems(
-                leading: Button("Programs") { self.presentationMode.wrappedValue.dismiss() },
-                trailing:
-                Button(action: {
-                    self.showingNewAttendee = true
-                }) {
-                    Image(systemName: "plus.circle.fill").resizable().frame(width: 24, height: 24)
-                        .padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 0))
-                }.sheet(isPresented: $showingNewAttendee, content: {
-                    NewAttendee(program: self.program)
+            ScrollView {
+                Grid(self.fetchedProgram.first!.attendeesArray) { attendee in
+                    AttendeeCard(attendee: attendee, currentEventID: self.appState.currentEvent)
                         .environment(\.managedObjectContext, self.managedObjectContext)
+                }
+                .gridStyle(self.gridStyle)
+                .padding(EdgeInsets(top: 32, leading: 16, bottom: 32, trailing: 16))
+                .navigationBarTitle(program.name)
+                .navigationBarItems(
+                    leading: Button("Programs") { self.presentationMode.wrappedValue.dismiss() },
+                    trailing: HStack {
+                        Button(action: {
+                            self.showingNewAttendee = true
+                }) {
+                            Image(systemName: "person.crop.circle.badge.plus").font(.system(size: 22))
+                        }.sheet(isPresented: $showingNewAttendee, content: {
+                            NewAttendee(program: self.program)
+                                .environment(\.managedObjectContext, self.managedObjectContext)
 
                 })
-            )
-            .gridStyle(self.gridStyle)
-
+                    }
+                )
+            }
             EventButton(program: program).environment(\.managedObjectContext, managedObjectContext)
         }
     }
 }
 
+#if DEBUG
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
         let context = (UIApplication.shared.delegate as!
@@ -98,3 +100,4 @@ struct Home_Previews: PreviewProvider {
         }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
+#endif

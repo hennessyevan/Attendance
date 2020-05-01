@@ -18,6 +18,21 @@ struct AttendeeModal: View {
     var body: some View {
         VStack {
             HStack(alignment: .top) {
+                if attendee.image != nil {
+                    ZStack(alignment: .center) {
+                        Image(uiImage: UIImage(data: attendee.image!)!)
+                            .resizable()
+                            .frame(width: 65, height: 65)
+                            .clipShape(Circle())
+                            .blur(radius: 10)
+                            .opacity(0.3)
+
+                        Image(uiImage: UIImage(data: attendee.image!)!)
+                            .resizable()
+                            .frame(width: 60, height: 60)
+                            .clipShape(Circle())
+                    }.padding(.trailing, 8)
+                }
                 VStack(alignment: .leading) {
                     Text("\(attendee.firstName) \(attendee.lastName)")
                         .font(.title)

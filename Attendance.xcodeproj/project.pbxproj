@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		350288A1245B4571003AB00E /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 350288A0245B4571003AB00E /* CloudKit.framework */; };
+		350288AA245B693E003AB00E /* SwiftUIPullToRefresh in Frameworks */ = {isa = PBXBuildFile; productRef = 350288A9245B693E003AB00E /* SwiftUIPullToRefresh */; };
+		350288B0245B8F50003AB00E /* FatalError+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350288AF245B8F50003AB00E /* FatalError+Extensions.swift */; };
 		3521D7EB242977C700FCB101 /* AttendeeModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3521D7EA242977C700FCB101 /* AttendeeModal.swift */; };
 		3521D809242A730600FCB101 /* AllAttendees.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3521D808242A730600FCB101 /* AllAttendees.swift */; };
 		3521D80B242AB35F00FCB101 /* Attendee+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3521D80A242AB35F00FCB101 /* Attendee+Extensions.swift */; };
@@ -15,7 +18,6 @@
 		3521D812242B0ACD00FCB101 /* NewAttendee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3521D811242B0ACD00FCB101 /* NewAttendee.swift */; };
 		3526A3792450FFD400DD3E49 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3526A3782450FFD400DD3E49 /* AppState.swift */; };
 		35396C8D245779770030B3ED /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35396C8C245779760030B3ED /* Toast.swift */; };
-		35396C902457942C0030B3ED /* KeyboardObserving in Frameworks */ = {isa = PBXBuildFile; productRef = 35396C8F2457942C0030B3ED /* KeyboardObserving */; };
 		35396C9224579AF90030B3ED /* AvoidKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35396C9124579AF90030B3ED /* AvoidKeyboard.swift */; };
 		35396C94245893620030B3ED /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35396C93245893620030B3ED /* ActivityIndicator.swift */; };
 		3573601924536F7A00BC5C56 /* Image+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3573601824536F7A00BC5C56 /* Image+Extensions.swift */; };
@@ -28,12 +30,10 @@
 		357360312454A31400BC5C56 /* Program+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357360292454A31400BC5C56 /* Program+CoreDataProperties.swift */; };
 		357360332454A46200BC5C56 /* Event+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357360322454A46200BC5C56 /* Event+Extensions.swift */; };
 		35803ACE2457353600FAFA42 /* EventButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35803ACD2457353600FAFA42 /* EventButton.swift */; };
-		35803AD52457630B00FAFA42 /* Color in Frameworks */ = {isa = PBXBuildFile; productRef = 35803AD42457630B00FAFA42 /* Color */; };
 		35803AD824576AF500FAFA42 /* SimpleHaptics in Frameworks */ = {isa = PBXBuildFile; productRef = 35803AD724576AF500FAFA42 /* SimpleHaptics */; };
 		35803ADA24576EC100FAFA42 /* PublishedUserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35803AD924576EC100FAFA42 /* PublishedUserDefault.swift */; };
 		35977A492452695500E90CC8 /* PropertyNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35977A482452695500E90CC8 /* PropertyNames.swift */; };
 		35977A5024528FD900E90CC8 /* CaptureImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35977A4F24528FD900E90CC8 /* CaptureImageView.swift */; };
-		35977A53245290E500E90CC8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35977A52245290E500E90CC8 /* Coordinator.swift */; };
 		35977A5524529C2900E90CC8 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35977A5424529C2900E90CC8 /* ModalView.swift */; };
 		35977A572452A31700E90CC8 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35977A562452A31700E90CC8 /* UIImage+Extensions.swift */; };
 		35A609BB23EBA8510083DA45 /* Grid in Frameworks */ = {isa = PBXBuildFile; productRef = 35A609BA23EBA8510083DA45 /* Grid */; };
@@ -78,6 +78,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		350288A0245B4571003AB00E /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		350288AF245B8F50003AB00E /* FatalError+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FatalError+Extensions.swift"; sourceTree = "<group>"; };
 		3521D7EA242977C700FCB101 /* AttendeeModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendeeModal.swift; sourceTree = "<group>"; };
 		3521D808242A730600FCB101 /* AllAttendees.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAttendees.swift; sourceTree = "<group>"; };
 		3521D80A242AB35F00FCB101 /* Attendee+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Attendee+Extensions.swift"; sourceTree = "<group>"; };
@@ -101,7 +103,6 @@
 		35803AD924576EC100FAFA42 /* PublishedUserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishedUserDefault.swift; sourceTree = "<group>"; };
 		35977A482452695500E90CC8 /* PropertyNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyNames.swift; sourceTree = "<group>"; };
 		35977A4F24528FD900E90CC8 /* CaptureImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureImageView.swift; sourceTree = "<group>"; };
-		35977A52245290E500E90CC8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		35977A5424529C2900E90CC8 /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
 		35977A562452A31700E90CC8 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		35BAEE0023EB20210010CD58 /* Attendance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Attendance.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,9 +140,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35803AD52457630B00FAFA42 /* Color in Frameworks */,
-				35396C902457942C0030B3ED /* KeyboardObserving in Frameworks */,
+				350288A1245B4571003AB00E /* CloudKit.framework in Frameworks */,
 				35A609BB23EBA8510083DA45 /* Grid in Frameworks */,
+				350288AA245B693E003AB00E /* SwiftUIPullToRefresh in Frameworks */,
 				35803AD824576AF500FAFA42 /* SimpleHaptics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -163,6 +164,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3502889F245B4571003AB00E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				350288A0245B4571003AB00E /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3526A37C24521AB900DD3E49 /* Attendee */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,7 +216,6 @@
 			isa = PBXGroup;
 			children = (
 				35977A4F24528FD900E90CC8 /* CaptureImageView.swift */,
-				35977A52245290E500E90CC8 /* Coordinator.swift */,
 			);
 			path = CameraPicker;
 			sourceTree = "<group>";
@@ -240,6 +248,7 @@
 				35BAEE1C23EB20220010CD58 /* AttendanceTests */,
 				35BAEE2723EB20220010CD58 /* AttendanceUITests */,
 				35BAEE0123EB20210010CD58 /* Products */,
+				3502889F245B4571003AB00E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -347,6 +356,7 @@
 				3573601824536F7A00BC5C56 /* Image+Extensions.swift */,
 				35C05A7D244E66910007D90B /* String+Extensions.swift */,
 				35977A562452A31700E90CC8 /* UIImage+Extensions.swift */,
+				350288AF245B8F50003AB00E /* FatalError+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -369,9 +379,8 @@
 			name = Attendance;
 			packageProductDependencies = (
 				35A609BA23EBA8510083DA45 /* Grid */,
-				35803AD42457630B00FAFA42 /* Color */,
 				35803AD724576AF500FAFA42 /* SimpleHaptics */,
-				35396C8F2457942C0030B3ED /* KeyboardObserving */,
+				350288A9245B693E003AB00E /* SwiftUIPullToRefresh */,
 			);
 			productName = "YM Signup";
 			productReference = 35BAEE0023EB20210010CD58 /* Attendance.app */;
@@ -420,7 +429,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = "Evan Hennessy";
 				TargetAttributes = {
 					35BAEDFF23EB20210010CD58 = {
@@ -443,13 +452,36 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
+				ar,
+				"zh-Hans",
+				ja,
+				fa,
+				es,
+				it,
+				ms,
+				ko,
+				"zh-Hant",
+				"fa-IR",
+				hu,
+				"da-DK",
+				tr,
+				pl,
+				"pt-BR",
+				vi,
+				ru,
+				fr,
+				fi,
+				id,
+				nl,
+				pt,
+				ro,
 			);
 			mainGroup = 35BAEDF723EB20210010CD58;
 			packageReferences = (
 				35A609B923EBA8510083DA45 /* XCRemoteSwiftPackageReference "swiftui-grid" */,
-				35803AD32457630B00FAFA42 /* XCRemoteSwiftPackageReference "Color" */,
 				35803AD624576AF500FAFA42 /* XCRemoteSwiftPackageReference "simple-haptics" */,
-				35396C8E2457942C0030B3ED /* XCRemoteSwiftPackageReference "KeyboardObserving" */,
+				350288A8245B693E003AB00E /* XCRemoteSwiftPackageReference "SwiftUI-PullToRefresh" */,
 			);
 			productRefGroup = 35BAEE0123EB20210010CD58 /* Products */;
 			projectDirPath = "";
@@ -498,6 +530,7 @@
 				3521D7EB242977C700FCB101 /* AttendeeModal.swift in Sources */,
 				35C05A7E244E66910007D90B /* String+Extensions.swift in Sources */,
 				3573602D2454A31400BC5C56 /* Attendee+CoreDataProperties.swift in Sources */,
+				350288B0245B8F50003AB00E /* FatalError+Extensions.swift in Sources */,
 				35396C94245893620030B3ED /* ActivityIndicator.swift in Sources */,
 				357360312454A31400BC5C56 /* Program+CoreDataProperties.swift in Sources */,
 				3526A3792450FFD400DD3E49 /* AppState.swift in Sources */,
@@ -508,7 +541,6 @@
 				35BAEE0423EB20210010CD58 /* AppDelegate.swift in Sources */,
 				35FE87F32458B4E600F0D878 /* Timestamp+Extensions.swift in Sources */,
 				35977A492452695500E90CC8 /* PropertyNames.swift in Sources */,
-				35977A53245290E500E90CC8 /* Coordinator.swift in Sources */,
 				35803ACE2457353600FAFA42 /* EventButton.swift in Sources */,
 				3573601F2453DD1B00BC5C56 /* Button+Extensions.swift in Sources */,
 				35FE87F62458B58E00F0D878 /* Timestamp+CoreDataClass.swift in Sources */,
@@ -586,6 +618,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -638,7 +671,9 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
@@ -647,6 +682,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -692,7 +728,9 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -703,19 +741,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Attendance/Attendance.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Attendance/Preview Content\"";
-				DEVELOPMENT_TEAM = MF3259223Z;
+				DEVELOPMENT_TEAM = 4CUBSV9SX3;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Attendance/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.hennessyevan.Attendance;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hennessyevan.AttendanceApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -727,19 +768,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Attendance/Attendance.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Attendance/Preview Content\"";
-				DEVELOPMENT_TEAM = MF3259223Z;
+				DEVELOPMENT_TEAM = 4CUBSV9SX3;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Attendance/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.hennessyevan.Attendance;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hennessyevan.AttendanceApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -751,8 +795,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MF3259223Z;
+				DEVELOPMENT_TEAM = 4CUBSV9SX3;
 				INFOPLIST_FILE = AttendanceTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -762,6 +808,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hennessyevan.AttendanceTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Attendance.app/Attendance";
@@ -773,8 +821,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MF3259223Z;
+				DEVELOPMENT_TEAM = 4CUBSV9SX3;
 				INFOPLIST_FILE = AttendanceTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -784,6 +834,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hennessyevan.AttendanceTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Attendance.app/Attendance";
@@ -872,20 +924,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		35396C8E2457942C0030B3ED /* XCRemoteSwiftPackageReference "KeyboardObserving" */ = {
+		350288A8245B693E003AB00E /* XCRemoteSwiftPackageReference "SwiftUI-PullToRefresh" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/nickffox/KeyboardObserving";
+			repositoryURL = "https://github.com/AppPear/SwiftUI-PullToRefresh";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.3.0;
-			};
-		};
-		35803AD32457630B00FAFA42 /* XCRemoteSwiftPackageReference "Color" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/soffes/Color.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.2;
+				minimumVersion = 1.0.0;
 			};
 		};
 		35803AD624576AF500FAFA42 /* XCRemoteSwiftPackageReference "simple-haptics" */ = {
@@ -901,21 +945,16 @@
 			repositoryURL = "https://github.com/spacenation/swiftui-grid";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.9.3;
+				minimumVersion = 1.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		35396C8F2457942C0030B3ED /* KeyboardObserving */ = {
+		350288A9245B693E003AB00E /* SwiftUIPullToRefresh */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 35396C8E2457942C0030B3ED /* XCRemoteSwiftPackageReference "KeyboardObserving" */;
-			productName = KeyboardObserving;
-		};
-		35803AD42457630B00FAFA42 /* Color */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 35803AD32457630B00FAFA42 /* XCRemoteSwiftPackageReference "Color" */;
-			productName = Color;
+			package = 350288A8245B693E003AB00E /* XCRemoteSwiftPackageReference "SwiftUI-PullToRefresh" */;
+			productName = SwiftUIPullToRefresh;
 		};
 		35803AD724576AF500FAFA42 /* SimpleHaptics */ = {
 			isa = XCSwiftPackageProductDependency;

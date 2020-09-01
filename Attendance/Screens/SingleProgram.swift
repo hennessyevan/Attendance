@@ -1,5 +1,5 @@
 //
-//  Home.swift
+//  SingleProgram.swift
 //  Attendance
 //
 //  Created by Evan Hennessy on 2/5/20.
@@ -7,10 +7,9 @@
 //
 
 import CoreData
-import Grid
 import SwiftUI
 
-struct Home: View {
+struct SingleProgram: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var appState: AppState
@@ -18,6 +17,7 @@ struct Home: View {
     var program: Program
     var programFetchRequest: FetchRequest<Program>
     var fetchedProgram: FetchedResults<Program> { programFetchRequest.wrappedValue }
+    var currentEvent: Event? { fetchedProgram.first!.eventsArray.first(where: { $0.id.uuidString == appState.currentEvent }) }
 
     var color: UIColor
 
@@ -37,44 +37,50 @@ struct Home: View {
     @State private var confirmStop = false
     @State private var sortedKey: attendeeSortKey = .lastName
 
-    let gridStyle = StaggeredGridStyle(
-        .vertical,
-        tracks: .min(250),
-        spacing: 16
-    )
+    private var columns: [GridItem] = [
+        GridItem(.adaptive(minimum: 250))
+    ]
 
     var body: some View {
         ZStack {
             ScrollView {
-                Grid(self.fetchedProgram.first!.attendeesArray) { attendee in
-                    AttendeeCard(attendee: attendee, currentEventID: self.appState.currentEvent)
-                        .environment(\.managedObjectContext, self.managedObjectContext)
-                }
-                .gridStyle(self.gridStyle)
-                .padding(EdgeInsets(top: 32, leading: 16, bottom: 32, trailing: 16))
-                .navigationBarTitle(program.name)
-                .navigationBarItems(
-                    leading: Button("Programs") { self.presentationMode.wrappedValue.dismiss() },
-                    trailing: HStack {
-                        Button(action: {
-                            self.showingNewAttendee = true
-                }) {
-                            Image(systemName: "person.crop.circle.badge.plus").font(.system(size: 22))
-                        }.sheet(isPresented: $showingNewAttendee, content: {
-                            NewAttendee(program: self.program)
-                                .environment(\.managedObjectContext, self.managedObjectContext)
-
-                })
+                LazyVGrid(columns: columns, alignment: .center, spacing: 12, pinnedViews: []) {
+                    ForEach(self.fetchedProgram.first!.attendeesArraySorted(by: sortedKey), id: \.self) { attendee in
+                        AttendeeCard(attendee: attendee, currentEventID: self.appState.currentEvent)
+                            .environment(\.managedObjectContext, self.managedObjectContext)
                     }
-                )
+                }
+                .padding(EdgeInsets(top: 32, leading: 16, bottom: 96, trailing: 16))
             }
+
             EventButton(program: program).environment(\.managedObjectContext, managedObjectContext)
         }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarTitleDisplayMode(.inline)
+        .configureNavigationBar {
+            $0.navigationBar.tintColor = .white
+            $0.navigationBar.barTintColor = color
+        }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button("End \(program.name)") { presentationMode.wrappedValue.dismiss() }.foregroundColor(Color(self.color))
+            }
+            ToolbarItem(placement: .principal) {
+                Text(program.name).font(.title3).bold().foregroundColor(.white)
+            }
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button("Add Member") { showingNewAttendee = true }
+            }
+        }
+        .sheet(isPresented: $showingNewAttendee) {
+            NewAttendee(program: program).environment(\.managedObjectContext, managedObjectContext)
+        }
+        .onAppear {}
     }
 }
 
 #if DEBUG
-struct Home_Previews: PreviewProvider {
+struct SingleProgram_Previews: PreviewProvider {
     static var previews: some View {
         let context = (UIApplication.shared.delegate as!
             AppDelegate).persistentContainer.viewContext
@@ -94,7 +100,7 @@ struct Home_Previews: PreviewProvider {
         }
 
         return NavigationView {
-            Home(program: program)
+            SingleProgram(program: program)
                 .environment(\.managedObjectContext, context)
                 .environmentObject(AppState())
         }.navigationViewStyle(StackNavigationViewStyle())

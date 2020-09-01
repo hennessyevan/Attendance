@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		350288A1245B4571003AB00E /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 350288A0245B4571003AB00E /* CloudKit.framework */; };
-		350288AA245B693E003AB00E /* SwiftUIPullToRefresh in Frameworks */ = {isa = PBXBuildFile; productRef = 350288A9245B693E003AB00E /* SwiftUIPullToRefresh */; };
 		350288B0245B8F50003AB00E /* FatalError+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350288AF245B8F50003AB00E /* FatalError+Extensions.swift */; };
+		350A0FA0245C8024009B8088 /* DynamicColor in Frameworks */ = {isa = PBXBuildFile; productRef = 350A0F9F245C8024009B8088 /* DynamicColor */; };
+		350A0FA2245CA92D009B8088 /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350A0FA1245CA92D009B8088 /* EventListView.swift */; };
 		3521D7EB242977C700FCB101 /* AttendeeModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3521D7EA242977C700FCB101 /* AttendeeModal.swift */; };
 		3521D809242A730600FCB101 /* AllAttendees.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3521D808242A730600FCB101 /* AllAttendees.swift */; };
 		3521D80B242AB35F00FCB101 /* Attendee+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3521D80A242AB35F00FCB101 /* Attendee+Extensions.swift */; };
@@ -18,8 +19,6 @@
 		3521D812242B0ACD00FCB101 /* NewAttendee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3521D811242B0ACD00FCB101 /* NewAttendee.swift */; };
 		3526A3792450FFD400DD3E49 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3526A3782450FFD400DD3E49 /* AppState.swift */; };
 		35396C8D245779770030B3ED /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35396C8C245779760030B3ED /* Toast.swift */; };
-		35396C9224579AF90030B3ED /* AvoidKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35396C9124579AF90030B3ED /* AvoidKeyboard.swift */; };
-		35396C94245893620030B3ED /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35396C93245893620030B3ED /* ActivityIndicator.swift */; };
 		3573601924536F7A00BC5C56 /* Image+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3573601824536F7A00BC5C56 /* Image+Extensions.swift */; };
 		3573601F2453DD1B00BC5C56 /* Button+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3573601E2453DD1B00BC5C56 /* Button+Extensions.swift */; };
 		3573602A2454A31400BC5C56 /* Event+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357360222454A31400BC5C56 /* Event+CoreDataClass.swift */; };
@@ -32,11 +31,10 @@
 		35803ACE2457353600FAFA42 /* EventButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35803ACD2457353600FAFA42 /* EventButton.swift */; };
 		35803AD824576AF500FAFA42 /* SimpleHaptics in Frameworks */ = {isa = PBXBuildFile; productRef = 35803AD724576AF500FAFA42 /* SimpleHaptics */; };
 		35803ADA24576EC100FAFA42 /* PublishedUserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35803AD924576EC100FAFA42 /* PublishedUserDefault.swift */; };
-		35977A492452695500E90CC8 /* PropertyNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35977A482452695500E90CC8 /* PropertyNames.swift */; };
 		35977A5024528FD900E90CC8 /* CaptureImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35977A4F24528FD900E90CC8 /* CaptureImageView.swift */; };
-		35977A5524529C2900E90CC8 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35977A5424529C2900E90CC8 /* ModalView.swift */; };
 		35977A572452A31700E90CC8 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35977A562452A31700E90CC8 /* UIImage+Extensions.swift */; };
-		35A609BB23EBA8510083DA45 /* Grid in Frameworks */ = {isa = PBXBuildFile; productRef = 35A609BA23EBA8510083DA45 /* Grid */; };
+		35A5FB4824F876E200E6965E /* SwiftUICam in Frameworks */ = {isa = PBXBuildFile; productRef = 35A5FB4724F876E200E6965E /* SwiftUICam */; };
+		35A5FB4A24F87F6300E6965E /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A5FB4924F87F6300E6965E /* View+Extensions.swift */; };
 		35BAEE0423EB20210010CD58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BAEE0323EB20210010CD58 /* AppDelegate.swift */; };
 		35BAEE0623EB20210010CD58 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BAEE0523EB20210010CD58 /* SceneDelegate.swift */; };
 		35BAEE0B23EB20210010CD58 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BAEE0A23EB20210010CD58 /* ContentView.swift */; };
@@ -47,7 +45,7 @@
 		35BAEE2923EB20220010CD58 /* AttendanceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BAEE2823EB20220010CD58 /* AttendanceUITests.swift */; };
 		35BAEE3B23EB30370010CD58 /* AttendeeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BAEE3A23EB30370010CD58 /* AttendeeCard.swift */; };
 		35BAEE4323EB74C30010CD58 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BAEE4223EB74C30010CD58 /* BlurView.swift */; };
-		35BAEE4B23EB779A0010CD58 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BAEE4A23EB779A0010CD58 /* Home.swift */; };
+		35BAEE4B23EB779A0010CD58 /* SingleProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BAEE4A23EB779A0010CD58 /* SingleProgram.swift */; };
 		35C05A7C244E4DFF0007D90B /* ThemeColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C05A7B244E4DFF0007D90B /* ThemeColorPicker.swift */; };
 		35C05A7E244E66910007D90B /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C05A7D244E66910007D90B /* String+Extensions.swift */; };
 		35D01E0D242C30E00035B200 /* Program+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D01E0C242C30E00035B200 /* Program+Extensions.swift */; };
@@ -80,6 +78,7 @@
 /* Begin PBXFileReference section */
 		350288A0245B4571003AB00E /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		350288AF245B8F50003AB00E /* FatalError+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FatalError+Extensions.swift"; sourceTree = "<group>"; };
+		350A0FA1245CA92D009B8088 /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
 		3521D7EA242977C700FCB101 /* AttendeeModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendeeModal.swift; sourceTree = "<group>"; };
 		3521D808242A730600FCB101 /* AllAttendees.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAttendees.swift; sourceTree = "<group>"; };
 		3521D80A242AB35F00FCB101 /* Attendee+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Attendee+Extensions.swift"; sourceTree = "<group>"; };
@@ -88,8 +87,6 @@
 		3521D811242B0ACD00FCB101 /* NewAttendee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAttendee.swift; sourceTree = "<group>"; };
 		3526A3782450FFD400DD3E49 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		35396C8C245779760030B3ED /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
-		35396C9124579AF90030B3ED /* AvoidKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvoidKeyboard.swift; sourceTree = "<group>"; };
-		35396C93245893620030B3ED /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		3573601824536F7A00BC5C56 /* Image+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extensions.swift"; sourceTree = "<group>"; };
 		3573601E2453DD1B00BC5C56 /* Button+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Extensions.swift"; sourceTree = "<group>"; };
 		357360222454A31400BC5C56 /* Event+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Event+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -101,10 +98,9 @@
 		357360322454A46200BC5C56 /* Event+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Event+Extensions.swift"; sourceTree = "<group>"; };
 		35803ACD2457353600FAFA42 /* EventButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventButton.swift; sourceTree = "<group>"; };
 		35803AD924576EC100FAFA42 /* PublishedUserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishedUserDefault.swift; sourceTree = "<group>"; };
-		35977A482452695500E90CC8 /* PropertyNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyNames.swift; sourceTree = "<group>"; };
 		35977A4F24528FD900E90CC8 /* CaptureImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureImageView.swift; sourceTree = "<group>"; };
-		35977A5424529C2900E90CC8 /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
 		35977A562452A31700E90CC8 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		35A5FB4924F87F6300E6965E /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		35BAEE0023EB20210010CD58 /* Attendance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Attendance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35BAEE0323EB20210010CD58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35BAEE0523EB20210010CD58 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -122,7 +118,7 @@
 		35BAEE3623EB21710010CD58 /* Attendance.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Attendance.entitlements; sourceTree = "<group>"; };
 		35BAEE3A23EB30370010CD58 /* AttendeeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendeeCard.swift; sourceTree = "<group>"; };
 		35BAEE4223EB74C30010CD58 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
-		35BAEE4A23EB779A0010CD58 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		35BAEE4A23EB779A0010CD58 /* SingleProgram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleProgram.swift; sourceTree = "<group>"; };
 		35C05A7B244E4DFF0007D90B /* ThemeColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColorPicker.swift; sourceTree = "<group>"; };
 		35C05A7D244E66910007D90B /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		35D01E0C242C30E00035B200 /* Program+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Program+Extensions.swift"; sourceTree = "<group>"; };
@@ -141,8 +137,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				350288A1245B4571003AB00E /* CloudKit.framework in Frameworks */,
-				35A609BB23EBA8510083DA45 /* Grid in Frameworks */,
-				350288AA245B693E003AB00E /* SwiftUIPullToRefresh in Frameworks */,
+				350A0FA0245C8024009B8088 /* DynamicColor in Frameworks */,
+				35A5FB4824F876E200E6965E /* SwiftUICam in Frameworks */,
 				35803AD824576AF500FAFA42 /* SimpleHaptics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,11 +191,7 @@
 			children = (
 				35BAEE4223EB74C30010CD58 /* BlurView.swift */,
 				3521D80E242AE59B00FCB101 /* GeometryGetter.swift */,
-				35977A482452695500E90CC8 /* PropertyNames.swift */,
-				35977A5424529C2900E90CC8 /* ModalView.swift */,
 				35396C8C245779760030B3ED /* Toast.swift */,
-				35396C9124579AF90030B3ED /* AvoidKeyboard.swift */,
-				35396C93245893620030B3ED /* ActivityIndicator.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -208,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				35803ACD2457353600FAFA42 /* EventButton.swift */,
+				350A0FA1245CA92D009B8088 /* EventListView.swift */,
 			);
 			path = Event;
 			sourceTree = "<group>";
@@ -322,7 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				35BAEE0A23EB20210010CD58 /* ContentView.swift */,
-				35BAEE4A23EB779A0010CD58 /* Home.swift */,
+				35BAEE4A23EB779A0010CD58 /* SingleProgram.swift */,
 				3521D808242A730600FCB101 /* AllAttendees.swift */,
 				35D7B1A8244F6B9C004D14A0 /* Programs.swift */,
 			);
@@ -357,6 +350,7 @@
 				35C05A7D244E66910007D90B /* String+Extensions.swift */,
 				35977A562452A31700E90CC8 /* UIImage+Extensions.swift */,
 				350288AF245B8F50003AB00E /* FatalError+Extensions.swift */,
+				35A5FB4924F87F6300E6965E /* View+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -378,9 +372,9 @@
 			);
 			name = Attendance;
 			packageProductDependencies = (
-				35A609BA23EBA8510083DA45 /* Grid */,
 				35803AD724576AF500FAFA42 /* SimpleHaptics */,
-				350288A9245B693E003AB00E /* SwiftUIPullToRefresh */,
+				350A0F9F245C8024009B8088 /* DynamicColor */,
+				35A5FB4724F876E200E6965E /* SwiftUICam */,
 			);
 			productName = "YM Signup";
 			productReference = 35BAEE0023EB20210010CD58 /* Attendance.app */;
@@ -429,7 +423,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1140;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Evan Hennessy";
 				TargetAttributes = {
 					35BAEDFF23EB20210010CD58 = {
@@ -479,9 +473,9 @@
 			);
 			mainGroup = 35BAEDF723EB20210010CD58;
 			packageReferences = (
-				35A609B923EBA8510083DA45 /* XCRemoteSwiftPackageReference "swiftui-grid" */,
 				35803AD624576AF500FAFA42 /* XCRemoteSwiftPackageReference "simple-haptics" */,
-				350288A8245B693E003AB00E /* XCRemoteSwiftPackageReference "SwiftUI-PullToRefresh" */,
+				350A0F9E245C8024009B8088 /* XCRemoteSwiftPackageReference "DynamicColor" */,
+				35A5FB4624F876E200E6965E /* XCRemoteSwiftPackageReference "SwiftUICam" */,
 			);
 			productRefGroup = 35BAEE0123EB20210010CD58 /* Products */;
 			projectDirPath = "";
@@ -531,7 +525,6 @@
 				35C05A7E244E66910007D90B /* String+Extensions.swift in Sources */,
 				3573602D2454A31400BC5C56 /* Attendee+CoreDataProperties.swift in Sources */,
 				350288B0245B8F50003AB00E /* FatalError+Extensions.swift in Sources */,
-				35396C94245893620030B3ED /* ActivityIndicator.swift in Sources */,
 				357360312454A31400BC5C56 /* Program+CoreDataProperties.swift in Sources */,
 				3526A3792450FFD400DD3E49 /* AppState.swift in Sources */,
 				35C05A7C244E4DFF0007D90B /* ThemeColorPicker.swift in Sources */,
@@ -540,7 +533,6 @@
 				3573602C2454A31400BC5C56 /* Attendee+CoreDataClass.swift in Sources */,
 				35BAEE0423EB20210010CD58 /* AppDelegate.swift in Sources */,
 				35FE87F32458B4E600F0D878 /* Timestamp+Extensions.swift in Sources */,
-				35977A492452695500E90CC8 /* PropertyNames.swift in Sources */,
 				35803ACE2457353600FAFA42 /* EventButton.swift in Sources */,
 				3573601F2453DD1B00BC5C56 /* Button+Extensions.swift in Sources */,
 				35FE87F62458B58E00F0D878 /* Timestamp+CoreDataClass.swift in Sources */,
@@ -550,23 +542,23 @@
 				35D7B1A9244F6B9C004D14A0 /* Programs.swift in Sources */,
 				35803ADA24576EC100FAFA42 /* PublishedUserDefault.swift in Sources */,
 				35D7B1AE2450F32C004D14A0 /* ProgramCard.swift in Sources */,
-				35396C9224579AF90030B3ED /* AvoidKeyboard.swift in Sources */,
 				35BAEE0623EB20210010CD58 /* SceneDelegate.swift in Sources */,
 				3573602B2454A31400BC5C56 /* Event+CoreDataProperties.swift in Sources */,
 				35D01E0D242C30E00035B200 /* Program+Extensions.swift in Sources */,
 				3573602A2454A31400BC5C56 /* Event+CoreDataClass.swift in Sources */,
-				35977A5524529C2900E90CC8 /* ModalView.swift in Sources */,
 				3573601924536F7A00BC5C56 /* Image+Extensions.swift in Sources */,
 				3521D80B242AB35F00FCB101 /* Attendee+Extensions.swift in Sources */,
 				35BAEE0B23EB20210010CD58 /* ContentView.swift in Sources */,
 				3521D80D242AB4D700FCB101 /* DataHelper.swift in Sources */,
 				357360332454A46200BC5C56 /* Event+Extensions.swift in Sources */,
 				35BAEE3B23EB30370010CD58 /* AttendeeCard.swift in Sources */,
+				350A0FA2245CA92D009B8088 /* EventListView.swift in Sources */,
 				35BAEE4323EB74C30010CD58 /* BlurView.swift in Sources */,
 				3521D812242B0ACD00FCB101 /* NewAttendee.swift in Sources */,
-				35BAEE4B23EB779A0010CD58 /* Home.swift in Sources */,
+				35BAEE4B23EB779A0010CD58 /* SingleProgram.swift in Sources */,
 				35396C8D245779770030B3ED /* Toast.swift in Sources */,
 				357360302454A31400BC5C56 /* Program+CoreDataClass.swift in Sources */,
+				35A5FB4A24F87F6300E6965E /* View+Extensions.swift in Sources */,
 				35977A572452A31700E90CC8 /* UIImage+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -641,6 +633,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -665,7 +658,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -705,6 +698,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -723,7 +717,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -759,7 +753,7 @@
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Debug;
 		};
@@ -786,7 +780,7 @@
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Release;
 		};
@@ -924,12 +918,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		350288A8245B693E003AB00E /* XCRemoteSwiftPackageReference "SwiftUI-PullToRefresh" */ = {
+		350A0F9E245C8024009B8088 /* XCRemoteSwiftPackageReference "DynamicColor" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AppPear/SwiftUI-PullToRefresh";
+			repositoryURL = "https://github.com/yannickl/DynamicColor";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				minimumVersion = 5.0.0;
 			};
 		};
 		35803AD624576AF500FAFA42 /* XCRemoteSwiftPackageReference "simple-haptics" */ = {
@@ -940,31 +934,31 @@
 				minimumVersion = 0.0.5;
 			};
 		};
-		35A609B923EBA8510083DA45 /* XCRemoteSwiftPackageReference "swiftui-grid" */ = {
+		35A5FB4624F876E200E6965E /* XCRemoteSwiftPackageReference "SwiftUICam" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/spacenation/swiftui-grid";
+			repositoryURL = "https://github.com/pierreveron/SwiftUICam";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		350288A9245B693E003AB00E /* SwiftUIPullToRefresh */ = {
+		350A0F9F245C8024009B8088 /* DynamicColor */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 350288A8245B693E003AB00E /* XCRemoteSwiftPackageReference "SwiftUI-PullToRefresh" */;
-			productName = SwiftUIPullToRefresh;
+			package = 350A0F9E245C8024009B8088 /* XCRemoteSwiftPackageReference "DynamicColor" */;
+			productName = DynamicColor;
 		};
 		35803AD724576AF500FAFA42 /* SimpleHaptics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 35803AD624576AF500FAFA42 /* XCRemoteSwiftPackageReference "simple-haptics" */;
 			productName = SimpleHaptics;
 		};
-		35A609BA23EBA8510083DA45 /* Grid */ = {
+		35A5FB4724F876E200E6965E /* SwiftUICam */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 35A609B923EBA8510083DA45 /* XCRemoteSwiftPackageReference "swiftui-grid" */;
-			productName = Grid;
+			package = 35A5FB4624F876E200E6965E /* XCRemoteSwiftPackageReference "SwiftUICam" */;
+			productName = SwiftUICam;
 		};
 /* End XCSwiftPackageProductDependency section */
 

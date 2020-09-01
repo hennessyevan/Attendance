@@ -63,15 +63,18 @@ struct EventButton: View {
                             .frame(width: 50, height: 50)
                             .foregroundColor(.white)
 
-                        Text(self.confirmEnd ? "End Event?" : "Start Event")
+                        Text(self.confirmEnd ? "End?" : "Start")
                             .foregroundColor(.white)
                             .fontWeight(.bold)
                             .padding(.trailing, 20)
                             .frame(maxWidth: appState.currentEvent.isEmpty || confirmEnd ? nil : 0, maxHeight: 28)
                             .animation(.spring(response: 0.0, dampingFraction: 0.2))
                     }
-                    .background(appState.currentEvent.isEmpty ? Color.green : Color.red)
-                    .cornerRadius(.infinity)
+                    .background(appState.currentEvent.isEmpty
+                        ? LinearGradient(gradient: colorGradients["green"]!, startPoint: .bottomTrailing, endPoint: .topLeading)
+                        : LinearGradient(gradient: colorGradients["red"]!, startPoint: .bottomTrailing, endPoint: .topLeading)
+                    )
+                    .cornerRadius(100)
                     .padding(20)
                     .shadow(
                         color: appState.currentEvent.isEmpty ? Color.green.opacity(0.5) : Color.red.opacity(0.5),
@@ -83,7 +86,7 @@ struct EventButton: View {
                 }
                 .buttonStyle(ScaleButtonStyle())
             }
-        }.toast(isPresenting: self.$toastIsPresenting, title: "Event Started")
+        }.toast(isPresenting: self.$toastIsPresenting, title: "Started")
     }
 }
 

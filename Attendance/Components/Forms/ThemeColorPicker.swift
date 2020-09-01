@@ -6,6 +6,7 @@
 //  Copyright © 2020 Evan Hennessy. All rights reserved.
 //
 
+import DynamicColor
 import SwiftUI
 import UIKit
 
@@ -26,23 +27,23 @@ let uiThemeColors: [String: UIColor] = [
 let colorGradients: [String: Gradient] = [
     "blue": Gradient(colors: [
         Color(UIColor.systemBlue),
-        Color(UIColor.systemBlue),
+        Color(DynamicColor.systemBlue.adjustedHue(amount: -20).saturated())
     ]),
     "red": Gradient(colors: [
         Color(UIColor.systemRed),
-        Color(UIColor.systemRed),
+        Color(DynamicColor.systemRed.adjustedHue(amount: -15).saturated())
     ]),
     "green": Gradient(colors: [
         Color(UIColor.systemGreen),
-        Color(UIColor.systemGreen),
+        Color(DynamicColor.systemGreen.adjustedHue(amount: -30).saturated())
     ]),
     "orange": Gradient(colors: [
         Color(UIColor.systemOrange),
-        Color(UIColor.systemOrange),
+        Color(DynamicColor.systemOrange.adjustedHue(amount: 10).saturated())
     ]),
     "purple": Gradient(colors: [
         Color(UIColor.systemPurple),
-        Color(UIColor.systemPurple),
+        Color(DynamicColor.systemPurple.adjustedHue(amount: 15).saturated())
     ])
 ]
 

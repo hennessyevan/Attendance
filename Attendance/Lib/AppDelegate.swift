@@ -24,16 +24,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         /*
          Remove all seed data
          */
-//        do {
-//            try persistentContainer.viewContext.execute(NSBatchDeleteRequest(fetchRequest: Attendee.fetchRequest()))
-//            try persistentContainer.viewContext.execute(NSBatchDeleteRequest(fetchRequest: Event.fetchRequest()))
-//            try persistentContainer.viewContext.execute(NSBatchDeleteRequest(fetchRequest: Program.fetchRequest()))
-//        } catch {}
-//
-//        let dataHelper = DataHelper(context: persistentContainer.viewContext)
-//        dataHelper.seedAttendees()
+        do {
+            try persistentContainer.viewContext.execute(NSBatchDeleteRequest(fetchRequest: Attendee.fetchRequest()))
+            try persistentContainer.viewContext.execute(NSBatchDeleteRequest(fetchRequest: Event.fetchRequest()))
+            try persistentContainer.viewContext.execute(NSBatchDeleteRequest(fetchRequest: Program.fetchRequest()))
+        } catch {}
 
-//        dataHelper.printAllAttendees()
+        let dataHelper = DataHelper(context: persistentContainer.viewContext)
+        dataHelper.seedAttendees()
+
+        dataHelper.printAllAttendees()
 
         return true
     }
@@ -90,17 +90,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         container.viewContext.automaticallyMergesChangesFromParent = true
 
         // Observe Core Data remote change notifications.
-        NotificationCenter.default.addObserver(
-            self, selector: #selector(self.letusknow),
-            name: .NSPersistentStoreRemoteChange, object: nil)
+//        NotificationCenter.default.addObserver(
+//            self, selector: #selector(self.letusknow),
+//            name: .NSPersistentStoreRemoteChange, object: nil)
 
         return container
     }()
     
-    @objc
-    func letusknow() {
-        print("Got it")
-    }
+//    @objc
+//    func letusknow() {
+//        print("Got update from cloud")
+//    }
 
     // MARK: - Core Data Saving support
 

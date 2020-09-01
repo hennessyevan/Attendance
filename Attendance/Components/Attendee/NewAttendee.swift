@@ -8,6 +8,7 @@
 
 import Combine
 import SwiftUI
+import SwiftUICam
 
 class NewAttendeeFormFields: ObservableObject {
     @Published var firstName = ""
@@ -71,8 +72,14 @@ struct NewAttendee: View {
                 .padding(.vertical, 32)
                 .frame(minWidth: 0, maxWidth: .infinity)
 
-                TextField("First Name", text: self.$fields.firstName).tag(0)
-                TextField("Last Name", text: self.$fields.lastName).tag(1)
+                TextField("First Name", text: self.$fields.firstName)
+                    .keyboardType(.alphabet)
+                    .textContentType(.givenName)
+                    .ignoresSafeArea(.keyboard, edges: .bottom)
+                TextField("Last Name", text: self.$fields.lastName)
+                    .keyboardType(.alphabet)
+                    .textContentType(.familyName)
+                    .ignoresSafeArea(.keyboard, edges: .bottom)
 
                 Picker(selection: self.$fields.grade, label: Text("Grade")) {
                     ForEach(0 ..< self.grades.count, id: \.self) {
@@ -86,7 +93,6 @@ struct NewAttendee: View {
                     }
                 }
             }
-            .keyboardAdaptive()
             .navigationBarTitle("New Attendee", displayMode: .inline)
             .navigationBarItems(
                 leading: Button(action: {

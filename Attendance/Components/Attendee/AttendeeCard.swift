@@ -24,6 +24,13 @@ struct AttendeeCard: View {
     
     var eventFetchRequest: FetchRequest<Event>
     var currentEvent: Event? { eventFetchRequest.wrappedValue.first }
+    var timestamp: Timestamp? { currentEvent?.timestampsArray.filter { $0.attendee == attendee }.first }
+    
+    func formatTime(time: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "h:mma"
+        return formatter.string(from: time)
+    }
     
     init(attendee: Attendee, currentEventID: String) {
         self.attendee = attendee
@@ -69,9 +76,21 @@ struct AttendeeCard: View {
                                     .foregroundColor(.primary)
                             }
                             
-                            Text("Grade \(attendee.grade)")
-                                .font(.system(size: 14))
-                                .foregroundColor(.accentColor)
+                            HStack {
+                                Text("Grade \(attendee.grade)")
+                                    .font(.system(size: 14))
+                                    .foregroundColor(.accentColor)
+                                
+                                HStack {
+                                    if timestamp != nil {
+                                        Text("\(formatTime(time: timestamp!.signedInAt))")
+                                            .font(.system(size: 14))
+                                            .foregroundColor(.gray)
+                                            .transition(.slide)
+                                            .animation(Animation.spring())
+                                    }
+                                }.clipped()
+                            }
                         }
                         Spacer()
                         
@@ -100,8 +119,18 @@ struct AttendeeCard: View {
                 if self.currentEvent == nil { return }
                 
                 if self.currentEvent!.attendeesArray.contains(self.attendee) {
+                    if self.timestamp != nil {
+                        self.currentEvent!.removeFromTimestamps(self.timestamp!)
+                    }
+                    
                     self.currentEvent!.removeFromAttendees(self.attendee)
                 } else {
+                    let timestamp = Timestamp(context: self.managedObjectContext)
+                    timestamp.attendee = self.attendee
+                    timestamp.id = UUID()
+                    timestamp.signedInAt = Date()
+                    
+                    self.currentEvent!.addToTimestamps(timestamp)
                     self.currentEvent!.addToAttendees(self.attendee)
                 }
                 try? self.managedObjectContext.save()

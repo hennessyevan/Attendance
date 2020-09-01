@@ -7,7 +7,6 @@
 //
 
 import CoreData
-import Grid
 import SwiftUI
 
 struct Programs: View {
@@ -19,33 +18,43 @@ struct Programs: View {
 
     @State private var showingNewProgram = false
 
-    let gridStyle = ModularGridStyle(
-        .vertical,
-        columns: .min(155),
-        rows: .fixed(215),
-        spacing: 16
-    )
+    private var columns: [GridItem] = [
+        GridItem(.adaptive(minimum: 155, maximum: 155), spacing: 16)
+    ]
 
     var body: some View {
         NavigationView {
             ScrollView {
-                Grid(programs) { program in
-                    ProgramCard(program: program)
+                LazyVGrid(columns: columns, alignment: .leading, spacing: 0, pinnedViews: []) {
+                    ForEach(programs) { program in
+                        ProgramCard(program: program)
+                    }
                 }
-                .gridStyle(self.gridStyle)
-                .padding(EdgeInsets(top: 32, leading: 16, bottom: 32, trailing: 16))
-                .navigationBarTitle("Programs")
-                .navigationBarItems(trailing: Button(action: {
-                    self.showingNewProgram = true
-                       }) {
-                    Image(systemName: "plus.circle.fill").font(.system(size: 22))
-                }.sheet(isPresented: $showingNewProgram, content: {
-                    NewProgram()
-                        .environment(\.managedObjectContext, self.managedObjectContext)
-                })
-                )
+                .padding()
             }
-        }.navigationViewStyle(StackNavigationViewStyle())
+            .navigationBarTitle("Programs")
+            .configureNavigationBar {
+                $0.navigationBar.tintColor = .systemBlue
+                $0.navigationBar.barTintColor = .systemBackground
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Settings") {}
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Edit") {}
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: { showingNewProgram = true }) {
+                        Image(systemName: "plus")
+                    }
+                    .sheet(isPresented: $showingNewProgram) {
+                        NewProgram().environment(\.managedObjectContext, self.managedObjectContext)
+                    }
+                }
+            }
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

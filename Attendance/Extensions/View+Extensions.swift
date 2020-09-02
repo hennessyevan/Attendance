@@ -50,3 +50,14 @@ final class NavigationConfigurationViewController: UIViewController {
         }
     }
 }
+
+extension View {
+    func fillParent(alignment:Alignment = .center) -> some View {
+        return GeometryReader { geometry in
+            self
+                .frame(width: geometry.size.width,
+                       height: geometry.size.height,
+                       alignment: alignment)
+        }
+    }
+}

@@ -6,6 +6,7 @@
 //  Copyright © 2020 Evan Hennessy. All rights reserved.
 //
 import CoreData
+import SwiftUI
 
 public class DataHelper {
     let context: NSManagedObjectContext
@@ -38,11 +39,11 @@ public class DataHelper {
             (firstName: "Florinda", lastName: "Josephine"),
         ]
         
-        let edgeAttendees = [
-            (firstName: "Ricki", lastName: "Rodrick"),
-            (firstName: "Chong", lastName: "Lorena"),
-            (firstName: "Odessa", lastName: "Jonnie"),
-            (firstName: "Sanjuana", lastName: "Denise"),
+        let edgeAttendees:[(firstName: String, lastName: String)] = [
+//            (firstName: "Ricki", lastName: "Rodrick"),
+//            (firstName: "Chong", lastName: "Lorena"),
+//            (firstName: "Odessa", lastName: "Jonnie"),
+//            (firstName: "Sanjuana", lastName: "Denise"),
         ]
         
         func addAttendees(attendees: [(firstName: String, lastName: String)], program: Program) {
@@ -53,6 +54,7 @@ public class DataHelper {
                 newAttendee.lastName = attendee.lastName
                 newAttendee.addToPrograms(program)
                 newAttendee.grade = Int32.random(in: 6...12)
+                newAttendee.image = UIImage(named: String(Int.random(in: 0...2)))!.jpegData(compressionQuality: 1.0)
             }
         }
         

@@ -27,6 +27,14 @@ struct ProgramCard: View {
 
         print(self.color)
     }
+    
+    func getSubline() -> String {
+        if program.attendeesArray.count > 0 {
+            return String("\(program.attendeesArray.count) members").uppercased()
+        } else {
+            return String("no members").uppercased()
+        }
+    }
 
     var body: some View {
         NavigationLink(destination: SingleProgram(program: program)) {
@@ -43,7 +51,7 @@ struct ProgramCard: View {
                                 .foregroundColor(.white)
                                 .lineLimit(2)
 
-                            Text(String("\(program.attendeesArray.count) members").uppercased())
+                            Text(getSubline())
                                 .font(.caption)
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)
